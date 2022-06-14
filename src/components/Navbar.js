@@ -182,61 +182,7 @@ export default function Navbar() {
                                                 </button>
                                             </div>
                                         </div>
-                                        <ul className>
-                                            <li>
-                                                <a className="cursor-pointer">
-                                                    <div className="text-gray-800 pt-10">
-                                                        <div className="flex items-center">
-                                                            <p tabIndex={0} className="focus:outline-none text-gray-800 text-sm font-medium">
-                                                                Dashboard
-                                                            </p>
-                                                        </div>
-                                                    </div>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a className="cursor-pointer">
-                                                    <div className="text-gray-800 pt-8">
-                                                        <div className="flex items-center justify-between">
-                                                            <div className="flex items-center">
-                                                                <p tabIndex={0} className="focus:outline-none text-gray-800 text-sm font-medium">
-                                                                    Transactions
-                                                                </p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a className="cursor-pointer">
-                                                    <div className="text-gray-800 pt-8">
-                                                        <div className="flex items-center">
-                                                            <p tabIndex={0} className="focus:outline-none text-gray-800 text-sm font-medium">
-                                                                Stats
-                                                            </p>
-                                                        </div>
-                                                    </div>
-                                                </a>
-                                            </li>
-                                            <li className="text-gray-800 pt-8 cursor-pointer">
-                                                <div className="flex items-center justify-between">
-                                                    <div className="w-6 h-6 md:w-8 md:h-8 text-gray-800">
-                                                        <p tabIndex={0} className="focus:outline-none text-gray-800 text-sm font-medium">
-                                                            Partners
-                                                        </p>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li className="text-gray-800 pt-8 cursor-pointer">
-                                                <div className="flex items-center justify-between">
-                                                    <div className="w-6 h-6 md:w-8 md:h-8 text-gray-800">
-                                                        <p tabIndex={0} className="focus:outline-none text-gray-800 text-sm font-medium">
-                                                            Settings
-                                                        </p>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                        </ul>
+                                        
                                     </div>
                                 </div>
                             </div>

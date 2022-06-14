@@ -8,18 +8,18 @@ return(
                                 <td className="pl-3 w-24 py-3">
                                     <div className="flex items-center">
                                         <input type="checkbox" className="cursor-pointer relative w-5 h-5 border rounded border-gray-400 bg-white dark:bg-gray-800 outline-none" onclick="tableInteract(this)" />
-                                        <a
+                                        <button
                                             onClick={() => {
-                                                dropdownStatus == 0 ? setDropdownStatus(1) : setDropdownStatus(0);
+                                                dropdownStatus === 0 ? setDropdownStatus(1) : setDropdownStatus(0);
                                             }}
                                             className=" focus:outline-none cursor-pointer text-gray-800 dark:text-gray-100 ml-2 lg:ml-4 mr-2 sm:mr-0 border border-transparent rounded focus:outline-none"
-                                            href="javascript: void(0)"
+                                            
                                         >
                                             <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-chevron-down" width={16} height={16} viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">
                                                 <path stroke="none" d="M0 0h24v24H0z" />
                                                 <polyline points="6 9 12 15 18 9" />
                                             </svg>
-                                        </a>
+                                        </button>
                                     </div>
                                 </td>
                                 <td className="whitespace-no-wrap w-20">
