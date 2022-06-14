@@ -152,33 +152,7 @@ export default function Navbar() {
                                 </div>
                             </div>
                         </div>
-                        <div className="container sm:px-6 px-4 justify-between h-12 flex items-center bg-white md:items-stretch mx-auto">
-                            <div className="h-full flex items-center">
-                                <ul className="flex items-center h-full md:hidden">
-                                    <li>
-                                        <a href="javascript:void(0)" className="focus:outline-none border-b-2 border-transparent leading-none cursor-pointer h-full flex items-center hover:text-indigo-700 text-sm text-gray-600 border-b-2 border-white">
-                                            Home
-                                        </a>
-                                    </li>
-                                    <svg className="mx-2" width={5} height={13} viewBox="0 0 5 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M4.67347 0.34082H3.59961L0.318359 12.5312H1.39222L4.67347 0.34082Z" fill="#E5E7EB" />
-                                    </svg>
-                                    <li>
-                                        <a href="javascript:void(0)" className="focus:outline-none border-b-2 border-transparent leading-none cursor-pointer h-full flex items-center hover:text-indigo-700 text-sm text-gray-600">
-                                            Resource Manager
-                                        </a>
-                                    </li>
-                                    <svg className="mx-2" width={5} height={13} viewBox="0 0 5 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M4.67347 0.34082H3.59961L0.318359 12.5312H1.39222L4.67347 0.34082Z" fill="#E5E7EB" />
-                                    </svg>
-                                    <li>
-                                        <a href="javascript:void(0)" className="focus:outline-none border-b-2 border-transparent leading-none cursor-pointer h-full flex items-center hover:text-indigo-700 text-sm text-gray-600 mr-4">
-                                            Job Applications
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
+                       
                     </div>
                     {/*Mobile responsive sidebar*/}
                     <div className={sideBar ? "absolute w-full h-full transform translate-x-0 z-40 transition duration-700 sm:hidden":"absolute w-full h-full transform -translate-x-full z-40 transition duration-700 sm:hidden"} id="mobile-nav">
