@@ -48,7 +48,7 @@ return(
                                     <div class="relative">
                                           {/* Code block for white button ends */}
                 {/* Code block for button with icon starts */}
-                <a href="javascript: void(0)" className="mx-2 my-2 flex items-center bg-white rounded border border-gray-300 text-gray-600 pl-3 pr-6 py-2 text-sm">
+                <button onClick="#" className="mx-2 my-2 flex items-center bg-white rounded border border-gray-300 text-gray-600 pl-3 pr-6 py-2 text-sm">
                     <span className="h-4 w-4 mr-2">
                         <svg xmlns="www.w3.org/2000/svg" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">
                             <path stroke="none" d="M0 0h24v24H0z" />
@@ -57,7 +57,7 @@ return(
                         </svg>
                     </span>
                     Taxonomy
-                </a>
+                </button>
                 {/* Code block for button with icon ends */}
 
                 
@@ -66,7 +66,7 @@ return(
                                     <div class="">
                                             {/* Code block for white button ends */}
                 {/* Code block for button with icon starts */}
-                <a href="javascript: void(0)" className="mx-2 my-2 flex items-center bg-white rounded border border-gray-300 text-gray-600 pl-3 pr-6 py-2 text-sm">
+                <button onClick="#" className="mx-2 my-2 flex items-center bg-white rounded border border-gray-300 text-gray-600 pl-3 pr-6 py-2 text-sm">
                     <span className="h-4 w-4 mr-2">
                         <svg xmlns="www.w3.org/2000/svg" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">
                             <path stroke="none" d="M0 0h24v24H0z" />
@@ -75,14 +75,14 @@ return(
                         </svg>
                     </span>
                     Pdf
-                </a>
+                </button>
                 {/* Code block for button with icon ends */}
 
                                     </div>
                                     <div class="">
                                   {/* Code block for white button ends */}
                 {/* Code block for button with icon starts */}
-                <a href="javascript: void(0)" className="mx-2 my-2 flex items-center bg-white rounded border border-gray-300 text-gray-600 pl-3 pr-6 py-2 text-sm">
+                <button onClick="#" className="mx-2 my-2 flex items-center bg-white rounded border border-gray-300 text-gray-600 pl-3 pr-6 py-2 text-sm">
                     <span className="h-4 w-4 mr-2">
                         <svg xmlns="www.w3.org/2000/svg" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">
                             <path stroke="none" d="M0 0h24v24H0z" />
@@ -91,7 +91,7 @@ return(
                         </svg>
                     </span>
                     Comments
-                </a>
+                </button>
                 {/* Code block for button with icon ends */}
 
                 
@@ -99,13 +99,13 @@ return(
                                     </div>
                                 </td>
                             </tr>
-                            {dropdownStatus == 1 && (
+                            {dropdownStatus === 1 && (
                                 <tr className="detail-row">
                                     <td colSpan={9}>
                                         <div className="flex items-stretch w-full border-b border-gray-300 dark:border-gray-200">
                                             <ul>
                                                 <li className="cursor-pointer text-sm leading-3 tracking-normal flex items-center justify-center">
-                                                    <a className="p-3 border text-gray-800 dark:text-gray-100 border-transparent focus:outline-none hover:text-indigo-700 focus:bg-indigo-700 focus:text-white" href="javascript: void(0)">
+                                                    <button className="p-3 border text-gray-800 dark:text-gray-100 border-transparent focus:outline-none hover:text-indigo-700 focus:bg-indigo-700 focus:text-white" onClick="#">
                                                         <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-grid" width={20} height={20} viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">
                                                             <path stroke="none" d="M0 0h24v24H0z" />
                                                             <rect x={4} y={4} width={6} height={6} rx={1} />
@@ -113,34 +113,34 @@ return(
                                                             <rect x={4} y={14} width={6} height={6} rx={1} />
                                                             <rect x={14} y={14} width={6} height={6} rx={1} />
                                                         </svg>
-                                                    </a>
+                                                    </button>
                                                 </li>
                                                 <li autoFocus className="cursor-pointer flex items-center justify-center">
-                                                    <a className="p-3 border text-gray-800 dark:text-gray-100 border-transparent focus:outline-none focus:bg-indigo-700 focus:text-white" href="javascript: void(0)">
+                                                    <button className="p-3 border text-gray-800 dark:text-gray-100 border-transparent focus:outline-none focus:bg-indigo-700 focus:text-white" onClick="#">
                                                         <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-puzzle" width={20} height={20} viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">
                                                             <path stroke="none" d="M0 0h24v24H0z" />
                                                             <path d="M4 7h3a1 1 0 0 0 1 -1v-1a2 2 0 0 1 4 0v1a1 1 0 0 0 1 1h3a1 1 0 0 1 1 1v3a1 1 0 0 0 1 1h1a2 2 0 0 1 0 4h-1a1 1 0 0 0 -1 1v3a1 1 0 0 1 -1 1h-3a1 1 0 0 1 -1 -1v-1a2 2 0 0 0 -4 0v1a1 1 0 0 1 -1 1h-3a1 1 0 0 1 -1 -1v-3a1 1 0 0 1 1 -1h1a2 2 0 0 0 0 -4h-1a1 1 0 0 1 -1 -1v-3a1 1 0 0 1 1 -1" />
                                                         </svg>
-                                                    </a>
+                                                    </button>
                                                 </li>
                                                 <li className="cursor-pointer text-sm leading-3 tracking-normal flex items-center justify-center">
-                                                    <a className="p-3 border text-gray-800 dark:text-gray-100 border-transparent focus:outline-none hover:text-indigo-700 focus:bg-indigo-700 focus:text-white" href="javascript: void(0)">
+                                                    <button className="p-3 border text-gray-800 dark:text-gray-100 border-transparent focus:outline-none hover:text-indigo-700 focus:bg-indigo-700 focus:text-white" onClick="#">
                                                         <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-compass" width={20} height={20} viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">
                                                             <path stroke="none" d="M0 0h24v24H0z" />
                                                             <polyline points="8 16 10 10 16 8 14 14 8 16" />
                                                             <circle cx={12} cy={12} r={9} />
                                                         </svg>
-                                                    </a>
+                                                    </button>
                                                 </li>
                                                 <li className="cursor-pointer text-sm leading-3 tracking-normal flex items-center justify-center">
-                                                    <a className="p-3 border text-gray-800 dark:text-gray-100 border-transparent hover:text-indigo-700 focus:bg-indigo-700 focus:text-white" href="javascript: void(0)">
+                                                    <button className="p-3 border text-gray-800 dark:text-gray-100 border-transparent hover:text-indigo-700 focus:bg-indigo-700 focus:text-white" onClick="#">
                                                         <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-code" width={20} height={20} viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">
                                                             <path stroke="none" d="M0 0h24v24H0z" />
                                                             <polyline points="7 8 3 12 7 16" />
                                                             <polyline points="17 8 21 12 17 16" />
                                                             <line x1={14} y1={4} x2={10} y2={20} />
                                                         </svg>
-                                                    </a>
+                                                    </button>
                                                 </li>
                                             </ul>
                                             <div className="w-full bg-white dark:bg-gray-800 border-l border-gray-300 dark:border-gray-200">
