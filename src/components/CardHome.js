@@ -10,7 +10,7 @@ import Solution5 from "./widgets/Solution5"
 import Solution6 from "./widgets/Solution6"
 import Solution7 from "./widgets/Solution7"
 import Solution8 from "./widgets/Solution8"
-import Swal from 'sweetalert2'
+
 import MyDocViewer from "./MyDocViewer";
 import './CardHome.css';
 
