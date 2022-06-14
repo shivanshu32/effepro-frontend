@@ -188,7 +188,7 @@ let rowCounter = 1;
                                                 <polyline points="6 9 12 15 18 9" />
                                             </svg>
                                         </div>
-                                        {dropdownStatus == 10 && (
+                                        {dropdownStatus === 10 && (
                                             <ul className="bg-white dark:bg-gray-800 shadow rounded mt-2 py-1 w-48 absolute top-0 right-0 mt-8 dropdown-content">
                                                 <li className="cursor-pointer text-gray-600 dark:text-gray-400 text-sm leading-3 tracking-normal py-3 hover:bg-indigo-700 hover:text-white px-3 font-normal">Option 1</li>
                                                 <li className="cursor-pointer text-gray-600 dark:text-gray-400 text-sm leading-3 tracking-normal py-3 hover:bg-indigo-700 hover:text-white px-3 font-normal">Option 2</li>
