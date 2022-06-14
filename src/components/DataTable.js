@@ -9,12 +9,30 @@ const baseURL = "http://18.223.118.227:4500/products";
 const DataTable = () => {
     const [post, setPost] = React.useState([]);
 React.useEffect(() => {
-    axios.get(baseURL).then((response) => {
+    axios.get(baseURL, //proxy uri
+    {
+       headers: {
+          authorization: ' xxxxxxxxxx' ,
+          'Content-Type': 'application/json'
+       } 
+    }).then((response) => {
       console.log('hi')
       console.log(response.data);
       setPost(response.data);
       
     });
+
+//     axios.get('http://localhost:5000/api/xxx', //proxy uri
+// {
+//    headers: {
+//       authorization: ' xxxxxxxxxx' ,
+//       'Content-Type': 'application/json'
+//    } 
+// }).then(function (response) {
+//    console.log(response);
+// });
+
+
   }, []);
 
 // if (!post) return null;
