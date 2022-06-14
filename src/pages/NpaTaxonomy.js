@@ -1,5 +1,5 @@
 import React from "react";
-import VisNetworkNPA from '../components/VisNetworkNPA';
+// import VisNetworkNPA from '../components/VisNetworkNPA';
 
 
 
@@ -7,7 +7,7 @@ const NPATaxonomy = () => {
 return(
     <div className="">
     
-    <VisNetworkNPA />
+    {/* <VisNetworkNPA /> */}
     </div>
 );
 }
