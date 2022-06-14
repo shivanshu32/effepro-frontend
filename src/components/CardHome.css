@@ -1,0 +1,8 @@
+.swal2-popup{
+    width:100em !important;
+    height: 50em !important;
+}
+
+.react-pdf__Page__canvas{
+    width:100%!important;
+}
