@@ -22,15 +22,7 @@ React.useEffect(() => {
       
     });
 
-//     axios.get('http://localhost:5000/api/xxx', //proxy uri
-// {
-//    headers: {
-//       authorization: ' xxxxxxxxxx' ,
-//       'Content-Type': 'application/json'
-//    } 
-// }).then(function (response) {
-//    console.log(response);
-// });
+
 
 
   }, []);

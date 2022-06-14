@@ -2,6 +2,7 @@
   "name": "my-react-project",
   "version": "0.1.0",
   "private": true,
+  "proxy" : "http://18.223.118.227:4500",
   "dependencies": {
     "@headlessui/react": "^1.6.4",
     "@heroicons/react": "^1.0.6",
