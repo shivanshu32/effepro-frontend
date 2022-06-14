@@ -127,7 +127,7 @@ let rowCounter = 1;
                                 <th
                                     className="whitespace-no-wrap w-32 first-dropdown cursor-pointer"
                                     onClick={() => {
-                                        dropdownStatus == 0 ? setDropdownStatus(8) : setDropdownStatus(0);
+                                        dropdownStatus === 0 ? setDropdownStatus(8) : setDropdownStatus(0);
                                     }}
                                 >
                                     <div className="flex items-center justify-between relative chuss-div">
@@ -138,7 +138,7 @@ let rowCounter = 1;
                                                 <polyline points="6 9 12 15 18 9" />
                                             </svg>
                                         </div>
-                                        {dropdownStatus == 8 && (
+                                        {dropdownStatus === 8 && (
                                             <ul className="bg-white dark:bg-gray-800 shadow rounded mt-2 py-1 w-48 absolute top-0 right-0 mt-8 dropdown-content">
                                                 <li className="cursor-pointer text-gray-600 dark:text-gray-400 text-sm leading-3 tracking-normal py-3 hover:bg-indigo-700 hover:text-white px-3 font-normal">Option 1</li>
                                                 <li className="cursor-pointer text-gray-600 dark:text-gray-400 text-sm leading-3 tracking-normal py-3 hover:bg-indigo-700 hover:text-white px-3 font-normal">Option 2</li>
@@ -150,7 +150,7 @@ let rowCounter = 1;
                                 </th>
                                 <th
                                     onClick={() => {
-                                        dropdownStatus == 0 ? setDropdownStatus(9) : setDropdownStatus(0);
+                                        dropdownStatus === 0 ? setDropdownStatus(9) : setDropdownStatus(0);
                                     }}
                                     className="border-l border-gray-300 dark:border-gray-200 pl-4 whitespace-no-wrap w-32 first-dropdown cursor-pointer"
                                     onclick="dropdownFunction(this)"
@@ -163,7 +163,7 @@ let rowCounter = 1;
                                                 <polyline points="6 9 12 15 18 9" />
                                             </svg>
                                         </div>
-                                        {dropdownStatus == 9 && (
+                                        {dropdownStatus === 9 && (
                                             <ul className="bg-white dark:bg-gray-800 shadow rounded mt-2 py-1 w-48 absolute top-0 right-0 mt-8 dropdown-content">
                                                 <li className="cursor-pointer text-gray-600 dark:text-gray-400 text-sm leading-3 tracking-normal py-3 hover:bg-indigo-700 hover:text-white px-3 font-normal">Option 1</li>
                                                 <li className="cursor-pointer text-gray-600 dark:text-gray-400 text-sm leading-3 tracking-normal py-3 hover:bg-indigo-700 hover:text-white px-3 font-normal">Option 2</li>
@@ -175,7 +175,7 @@ let rowCounter = 1;
                                 </th>
                                 <th
                                     onClick={() => {
-                                        dropdownStatus == 0 ? setDropdownStatus(10) : setDropdownStatus(0);
+                                        dropdownStatus === 0 ? setDropdownStatus(10) : setDropdownStatus(0);
                                     }}
                                     className="border-l border-gray-300 dark:border-gray-200 pl-4 whitespace-no-wrap w-32 first-dropdown cursor-pointer"
                                     onclick="dropdownFunction(this)"
@@ -201,7 +201,7 @@ let rowCounter = 1;
                                
                                 <th
                                     onClick={() => {
-                                        dropdownStatus == 0 ? setDropdownStatus(12) : setDropdownStatus(0);
+                                        dropdownStatus === 0 ? setDropdownStatus(12) : setDropdownStatus(0);
                                     }}
                                     className="border-l border-gray-300 dark:border-gray-200 pl-4 whitespace-no-wrap w-32 first-dropdown cursor-pointer"
                                     onclick="dropdownFunction(this)"
@@ -214,7 +214,7 @@ let rowCounter = 1;
                                                 <polyline points="6 9 12 15 18 9" />
                                             </svg>
                                         </div>
-                                        {dropdownStatus == 12 && (
+                                        {dropdownStatus === 12 && (
                                             <ul className="bg-white dark:bg-gray-800 shadow rounded mt-2 py-1 w-48 absolute top-0 right-0 mt-8 dropdown-content">
                                                 <li className="cursor-pointer text-gray-600 dark:text-gray-400 text-sm leading-3 tracking-normal py-3 hover:bg-indigo-700 hover:text-white px-3 font-normal">Option 1</li>
                                                 <li className="cursor-pointer text-gray-600 dark:text-gray-400 text-sm leading-3 tracking-normal py-3 hover:bg-indigo-700 hover:text-white px-3 font-normal">Option 2</li>
@@ -226,7 +226,7 @@ let rowCounter = 1;
                                 </th>
                                 <th
                                     onClick={() => {
-                                        dropdownStatus == 0 ? setDropdownStatus(13) : setDropdownStatus(0);
+                                        dropdownStatus === 0 ? setDropdownStatus(13) : setDropdownStatus(0);
                                     }}
                                     className="border-l border-gray-300 dark:border-gray-200 pl-4 whitespace-no-wrap w-32 first-dropdown cursor-pointer"
                                     onclick="dropdownFunction(this)"
@@ -237,7 +237,7 @@ let rowCounter = 1;
                                             <path stroke="none" d="M0 0h24v24H0z" />
                                             <polyline points="6 9 12 15 18 9" />
                                         </svg>
-                                        {dropdownStatus == 13 && (
+                                        {dropdownStatus === 13 && (
                                             <ul className="bg-white dark:bg-gray-800 shadow rounded mt-2 py-1 w-48 absolute top-0 right-0 mt-8 dropdown-content">
                                                 <li className="cursor-pointer text-gray-600 dark:text-gray-400 text-sm leading-3 tracking-normal py-3 hover:bg-indigo-700 hover:text-white px-3 font-normal">Option 1</li>
                                                 <li className="cursor-pointer text-gray-600 dark:text-gray-400 text-sm leading-3 tracking-normal py-3 hover:bg-indigo-700 hover:text-white px-3 font-normal">Option 2</li>
@@ -249,7 +249,7 @@ let rowCounter = 1;
                                 </th>
                                 <th
                                     onClick={() => {
-                                        dropdownStatus == 0 ? setDropdownStatus(14) : setDropdownStatus(0);
+                                        dropdownStatus === 0 ? setDropdownStatus(14) : setDropdownStatus(0);
                                     }}
                                     className="border-l border-gray-300 dark:border-gray-200 pl-4 whitespace-no-wrap w-32 first-dropdown cursor-pointer"
                                     onclick="dropdownFunction(this)"
@@ -262,7 +262,7 @@ let rowCounter = 1;
                                                 <polyline points="6 9 12 15 18 9" />
                                             </svg>
                                         </div>
-                                        {dropdownStatus == 14 && (
+                                        {dropdownStatus === 14 && (
                                             <ul className="bg-white dark:bg-gray-800 shadow rounded mt-2 py-1 w-48 absolute top-0 right-0 mt-8 dropdown-content">
                                                 <li className="cursor-pointer text-gray-600 dark:text-gray-400 text-sm leading-3 tracking-normal py-3 hover:bg-indigo-700 hover:text-white px-3 font-normal">Option 1</li>
                                                 <li className="cursor-pointer text-gray-600 dark:text-gray-400 text-sm leading-3 tracking-normal py-3 hover:bg-indigo-700 hover:text-white px-3 font-normal">Option 2</li>
