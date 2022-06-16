@@ -9,13 +9,7 @@ const baseURL = "https://effiepro.herokuapp.com/";
 const DataTable = () => {
     const [post, setPost] = React.useState([]);
 React.useEffect(() => {
-    axios.get(baseURL, //proxy uri
-    {
-       headers: {
-          authorization: ' xxxxxxxxxx' ,
-          'Content-Type': 'application/json'
-       } 
-    }).then((response) => {
+    axios.get(baseURL).then((response) => {
       console.log('hi')
       console.log(response.data);
       setPost(response.data);

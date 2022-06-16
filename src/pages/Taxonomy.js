@@ -1,5 +1,5 @@
 import React from "react";
-// import VisNetwork from '../components/VisNetwork';
+import VisNetwork from '../components/VisNetwork';
 
 
 
@@ -7,7 +7,7 @@ const Taxonomy = () => {
 return(
     <div className="">
     
-    {/* <VisNetwork /> */}
+    <VisNetwork />
     </div>
 );
 }
