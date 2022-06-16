@@ -42,7 +42,7 @@ const VisNetwork = () => {
       network.on( 'click', function(properties) {
         alert('clicked node ' + properties.nodes);
     });
-  }, [container, nodes, edges, options]);
+  }, []);
 
   return <div ref={container} style={{ height: '100vh', width: '100%' }} />;
 };

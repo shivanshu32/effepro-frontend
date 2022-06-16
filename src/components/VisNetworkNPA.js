@@ -51,7 +51,7 @@ const VisNetworkNPA = () => {
       network.on( 'click', function(properties) {
         alert('clicked node ' + properties.nodes);
     });
-  }, [container, nodes, edges]);
+  },[]);
 
   return <div ref={container} style={{ height: '100vh', width: '100%' }} />;
 };
