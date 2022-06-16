@@ -3,7 +3,7 @@ import SingleRecord from "./SingleRecord";
 import axios from "axios";
 
 // const baseURL = "http://localhost:4500/products";
-const baseURL = "http://18.223.118.227:4500/products";
+const baseURL = "https://effiepro.herokuapp.com/";
 
 
 const DataTable = () => {
