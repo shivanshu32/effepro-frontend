@@ -32,10 +32,10 @@ function Dashboard() {
                      </div>
 
                     <div className="md:w-1/3 w-full pb-6 md:pb-0 md:pr-6">
-                    <CardHome title="Solutions on Monellin" pdflink="./brazzein.pdf" />
+                    <CardHome title="Solutions on Monellin" pdflink="./monellin-pdf.pdf" />
                     </div>
                     <div className="md:w-1/3 w-full pb-6 md:pb-0 md:pr-6">
-                    <CardHome title="Composition" pdflink="./brazzein.pdf"/>
+                    <CardHome title="Composition" pdflink="./composition-pdf.pdf"/>
                     </div>
                     
                 </div>
@@ -48,14 +48,14 @@ function Dashboard() {
 
                     
                     <div className="md:w-1/3 h-24 w-full pb-6 md:pb-0 md:pr-6">
-                     <CardHome title="Solutions on Curculin" pdflink="proposed-pdf.pdf" />
+                     <CardHome title="Solutions on Curculin" pdflink="./curculin-pdf.pdf" />
                      </div>
 
                     <div className="md:w-1/3 w-full pb-6 md:pb-0 md:pr-6">
-                    <CardHome title="Solutions on Miraculin" pdflink="proposed-pdf.pdf" />
+                    <CardHome title="Solutions on Miraculin" pdflink="./miraculin-pdf.pdf" />
                     </div>
                     <div className="md:w-1/3 w-full pb-6 md:pb-0">
-                    <CardHome title="Solutions on Mabinlin" pdflink="proposed-pdf.pdf" />   
+                    <CardHome title="Solutions on Mabinlin" pdflink="./mabinlin-pdf.pdf" />   
                     </div>
                 </div>
 
@@ -65,10 +65,10 @@ function Dashboard() {
 
                 <div className="flex  flex-wrap py-4">
                     <div className="md:w-1/3 h-24 w-full pb-6 md:pb-0 md:pr-6">
-                     <CardHome title="Solutions on New Protein Sweetner Napin" pdflink="proposed-pdf.pdf" />
+                     <CardHome title="Solutions on New Protein Sweetner Napin" pdflink="./new-protein-sweetener-pdf.pdf" />
                      </div>
                      <div className="md:w-1/3 w-full pb-6 md:pb-0">
-                    <CardHome title="Solutions on Thaumatin" pdflink="proposed-pdf.pdf" />   
+                    <CardHome title="Solutions on Thaumatin" pdflink="./thaumatin-pdf.pdf" />   
                     </div>
                    
                     

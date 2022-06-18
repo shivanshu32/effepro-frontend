@@ -71,7 +71,7 @@ let rowCounter = 1;
                 <p className="text-gray-800 pl-4 dark:text-gray-100 fot-normal text-xs">Page</p>
                 <label htmlFor="selectedPage" className="hidden" />
                 <input id="selectedPage" type="text" className="bg-white dark:bg-gray-800 w-6 px-2 mx-2 text-gray-800 dark:text-gray-100 focus:outline-none focus:border focus:border-indigo-700 font-normal flex items-center text-xs border-gray-300 dark:border-gray-200 rounded border" defaultValue={1} />
-                <p className="text-gray-800 dark:text-gray-100 fot-normal text-xs">of 20</p>
+                <p className="text-gray-800 dark:text-gray-100 fot-normal text-xs">of 1</p>
                 <button className="text-gray-600 dark:text-gray-400 mx-5 border-gray-200 border rounded focus:outline-none focus:border-gray-800 focus:shadow-outline-gray" onClick="#">
                     <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-chevron-right" width={24} height={24} viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">
                         <path stroke="none" d="M0 0h24v24H0z" />
@@ -79,7 +79,7 @@ let rowCounter = 1;
                     </svg>
                 </button>
                 <label htmlFor="selectedPage1" className="hidden" />
-                <input id="selectedPage1" type="text" className="bg-white dark:bg-gray-800 w-8 px-2 mx-2 text-gray-800 dark:text-gray-100 focus:outline-none focus:border focus:border-indigo-700 font-normal flex items-center text-xs border-gray-300 dark:border-gray-200 rounded border" defaultValue={10} />
+                <input id="selectedPage1" type="text" className="bg-white dark:bg-gray-800 w-12 px-2 mx-2 text-gray-800 dark:text-gray-100 focus:outline-none focus:border focus:border-indigo-700 font-normal flex items-center text-xs border-gray-300 dark:border-gray-200 rounded border" defaultValue={195} />
                 <p className="-mt-1 text-gray-800 dark:text-gray-100 fot-normal text-xs">per page</p>
             </div>
 
