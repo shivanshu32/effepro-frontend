@@ -3,17 +3,10 @@ const TableCompare = () => {
     return (
         <div className="py-12">
             <div className="mx-auto container bg-white dark:bg-gray-800 shadow rounded">
-                <div className="flex flex-col lg:flex-row justify-between items-start lg:items-stretch w-full">
-                    
-                    <div className="w-full lg:w-2/3 flex flex-col lg:flex-row items-start lg:items-center justify-end">
-                        
-                        
-                        
-                    </div>
-                </div>
-                <div className="w-full overflow-x-scroll xl:overflow-x-hidden">
-                    <table className="min-w-full bg-white dark:bg-gray-800">
-                        <thead>
+                
+                <div className="w-full table-wrp block">
+                    <table className="min-w-full h-64 bg-white dark:bg-gray-800 ">
+                        <thead className="py-5 bg-white border-b sticky top-0">
                             <tr className="w-full h-16 border-gray-300 dark:border-gray-200 border-b py-8">
                                 <th className="pl-8 text-gray-600 dark:text-gray-400 font-normal pr-6 text-left text-sm tracking-normal leading-4">
                                 Ranking
@@ -44,15 +37,37 @@ const TableCompare = () => {
                                 </td>
                                 <td className="text-sm whitespace-no-wrap text-gray-800 dark:text-gray-100 tracking-normal leading-4">Fusing two chains of monellin protein into one through G6-I46 binding</td>
                                 <td className="text-sm whitespace-no-wrap text-gray-800 dark:text-gray-100 tracking-normal leading-4">University of California-Berkeley, Lucky Biotech Corp</td>
-                                <td class="pl-2"><div class="w-2 h-2 flex rounded-full bg-indigo-400"></div></td>
-                                <td class="pl-2"><div class="w-2 h-2 rounded-full bg-indigo-400"></div></td>
-                                <td class="pl-2"><div class="w-2 h-2 rounded-full bg-indigo-400"></div></td>
-                                <td class="pl-2"><div class="w-2 h-2 rounded-full bg-indigo-400"></div></td>
-                                <td class="pl-2"><div class="w-2 h-2 rounded-full bg-indigo-400"></div></td>
-                                <td class="pl-2"><div class="w-2 h-2 rounded-full bg-red-400"></div></td>
-                                <td class="pl-2"><div class="w-2 h-2 rounded-full bg-red-400"></div></td>
-                                <td class="pl-2"><div class="w-2 h-2 rounded-full bg-indigo-400"></div></td>
-                                <td class="pl-2"><div class="w-2 h-2 rounded-full bg-red-400"></div></td>
+                                <td class="pl-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
+  <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+</svg>
+                                </td>
+                                <td class="pl-2"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 fill-green-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+  <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+</svg></td>
+                                <td class="pl-2"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+  <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+</svg></td>
+                                <td class="pl-2"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+  <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+</svg></td>
+                                <td class="pl-2"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+  <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+</svg></td>
+                                <td class="pl-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+  <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+</svg>
+                                </td>
+                                <td class="pl-2"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+  <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+</svg></td>
+                                <td class="pl-2"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+  <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+</svg></td>
+                                <td class="pl-2"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+  <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+</svg></td>
                                 
                             </tr>
                             <tr className="h-24 border-gray-300 dark:border-gray-200 border-b">
