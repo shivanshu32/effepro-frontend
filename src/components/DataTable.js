@@ -16,7 +16,7 @@ const DataTable = props => {
         let newArray = [];
         //alert(thisKeyword)
         //alert(typeof(post))
-        post.map((thispost,i) => {
+        const tempArray = post.map((thispost,i) => {
             
             const patentno=thispost['Publication Number'];
             const title = thispost['Title'];
@@ -52,7 +52,8 @@ const DataTable = props => {
             {
               newArray.push(thispost)
             }
-
+         
+            return newArray;
 
            // alert(patentno);
         })
