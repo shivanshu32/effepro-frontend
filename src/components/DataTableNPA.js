@@ -83,7 +83,7 @@ let rowCounter = 1;
                     </svg>
                 </button>
                 <label htmlFor="selectedPage1" className="hidden" />
-                <input id="selectedPage1" type="text" className="bg-white dark:bg-gray-800 w-12 px-2 mx-2 text-gray-800 dark:text-gray-100 focus:outline-none focus:border focus:border-indigo-700 font-normal flex items-center text-xs border-gray-300 dark:border-gray-200 rounded border" defaultValue={195} />
+                <input id="selectedPage1" type="text" className="bg-white dark:bg-gray-800 w-12 px-2 mx-2 text-gray-800 dark:text-gray-100 focus:outline-none focus:border focus:border-indigo-700 font-normal flex items-center text-xs border-gray-300 dark:border-gray-200 rounded border" defaultValue={77} />
                 <p className="-mt-1 text-gray-800 dark:text-gray-100 fot-normal text-xs">per page</p>
             </div>
 
