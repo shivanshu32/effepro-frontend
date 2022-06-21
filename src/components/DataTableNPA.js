@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import SingleRecord from "./SingleRecord";
 import axios from "axios";
+import LoadingSpinner from "./LoadingSpinner";
 
 // const baseURL = "http://localhost:4500/products";
 // const baseURL = "https://effiepro.herokuapp.com/npa";
@@ -14,6 +15,7 @@ React.useEffect(() => {
       console.log(typeof(response.data))
       console.log(response.data);
       setPost(response.data);
+      setIsLoading(false);
       
     });
 
@@ -29,6 +31,7 @@ React.useEffect(() => {
 let rowCounter = 1;
 
     const [dropdownStatus, setDropdownStatus] = useState(0);
+    const [isLoading, setIsLoading] = useState(true);
     return (
         <div className="">
             <div className="">
@@ -285,6 +288,8 @@ let rowCounter = 1;
                             </tr>
                         </thead>
                         <tbody>
+
+                        {isLoading ? <LoadingSpinner /> : console.log('tets')}
                             
                             {post.map((thispost, i) => 
                             <SingleRecord patentno={thispost['Publication Number']} 

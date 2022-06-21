@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import SingleRecord from "./SingleRecord";
 import axios from "axios";
+import LoadingSpinner from "./LoadingSpinner";
 
 // const baseURL = "http://localhost:4500/products";
 // const baseURL = "https://effiepro.herokuapp.com/";
@@ -8,11 +9,13 @@ import axios from "axios";
 
 const DataTable = props => {
     const [post, setPost] = React.useState([]);
+
 React.useEffect(() => {
     axios.get(props.baseURL).then((response) => {
       console.log('hi')
       console.log(response.data);
       setPost(response.data);
+      setIsLoading(false);
       
     });
 
@@ -28,9 +31,14 @@ React.useEffect(() => {
 let rowCounter = 1;
 
     const [dropdownStatus, setDropdownStatus] = useState(0);
+    const [isLoading, setIsLoading] = useState(true);
     return (
         <div className="">
+
+
             <div className="">
+
+            
                 
                 <div className="flex flex-col md:flex-row p-3 justify-between items-start md:items-stretch w-full">
                     <div className="w-full md:w-1/2 flex flex-col md:flex-row items-start md:items-center">
@@ -284,6 +292,8 @@ let rowCounter = 1;
                             </tr>
                         </thead>
                         <tbody>
+
+                        {isLoading ? <LoadingSpinner /> : console.log('tets')}
                             
                             {post.map((thispost, i) => 
                             <SingleRecord patentno={thispost['Publication Number']} 
