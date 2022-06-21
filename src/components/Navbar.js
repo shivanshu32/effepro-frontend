@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import {BrowserRouter as Router} from 'react-router-dom';
+import {Link, BrowserRouter as Router} from 'react-router-dom';
 export default function Navbar() {
     const [sideBar, setsideBar] = useState();
     return (
@@ -20,25 +20,28 @@ export default function Navbar() {
                             <ul className="pr-12 md:flex items-center h-full hidden">
                                 <li>
                                     
-                               <Router>
-                               <a href="/">
+                              
+                               <Link
+              to="/"
+            >
                                        Dashboard
-                                       </a>
-                               </Router>
+                                       </Link>
+                             
                                     
                                   
                                 </li>
-                                <li>
-                                    <a href="/dataset" className="focus:outline-none border-b-2 border-transparent font-medium cursor-pointer h-full flex items-center hover:text-indigo-700 text-sm text-gray-800 mx-6 tracking-normal">
-                                        Dataset
-                                    </a>
+                                <li className="px-6">
+                                    <Link to="/Dataset">
+Dataset
+                                    </Link>
+                                    
                                 </li>
                                
                                 <li>
-                                <a href='/taxonomy'>
+                                <Link to='/taxonomy'>
                                        Taxonomy
                                     
-                                    </a>
+                                </Link>
                                 </li>
                                
                             </ul>
@@ -57,23 +60,8 @@ export default function Navbar() {
                                         <input className="hidden lg:block border border-gray-200 focus:outline-none focus:border-indigo-700 w-64 rounded text-sm text-gray-800 pl-8 py-2" type="text" placeholder="Search here" />
                                     </div>
                                 </div>
-                                <div className="h-full flex items-center">
-                                    <button aria-label="show notifications" className="relative focus:outline-none focus:text-indigo-700 hover:text-indigo-700 focus:border-indigo-700 hover:border-indigo-700 mx-5 h-full flex items-center justify-center text-gray-600 cursor-pointer">
-                                        <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-bell" width={28} height={28} viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">
-                                            <path stroke="none" d="M0 0h24v24H0z" />
-                                            <path d="M10 5a2 2 0 0 1 4 0a7 7 0 0 1 4 6v3a4 4 0 0 0 2 3h-16a4 4 0 0 0 2 -3v-3a7 7 0 0 1 4 -6" />
-                                            <path d="M9 17v1a3 3 0 0 0 6 0v-1" />
-                                        </svg>
-                                        <div className="absolute top-0 left-4 mt-0 mr-4 pr-1 pt-1">
-                                            <div className="animate-ping w-2 h-2 rounded-full bg-blue-400" />
-                                        </div>
-                                    </button>
-                                </div>
-                                <div className="h-full flex items-center">
-                                    <button aria-label="dropdown" className="focus:outline-none focus:text-gray-900 text-gray-800 border-b-2 border-transparent focus:border-gray-800 hover:text-gray-900 w-full flex items-center justify-end relative cursor-pointer" onclick="dropdownHandler(this)">
-                                        <img className="rounded-full h-10 w-10 object-cover" src="https://i.ibb.co/GTLTzZY/Unsplash-Avatars-0000s-0035-azamat-zhanisov-a5s-RFie-A3-BY-unsplash-1.png" alt="Unsplash-Avatars-0000s-0035-azamat-zhanisov-a5s-RFie-A3-BY-unsplash-1" />
-                                    </button>
-                                </div>
+                      
+                                
                             </div>
                         </div>
                        
@@ -82,9 +70,9 @@ export default function Navbar() {
                         <div className="h-full flex items-center">
                             <ul className="pr-12 md:flex items-center h-full hidden">
                                 <li>
-                                    <a href="/NPAdataset" className="focus:outline-none border-b-2 border-transparent leading-none cursor-pointer h-full flex items-center hover:text-indigo-700 text-sm text-gray-600 border-b-2 border-white">
-                                        Browse Non-Patent Dataset
-                                    </a>
+                                    <Link to="/NPAdataset" >
+                                           Browse Non-Patent Dataset
+                                    </Link>
                                 </li>
                                 <li>
                                     <svg className="mx-4" width={5} height={13} viewBox="0 0 5 13" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -92,9 +80,9 @@ export default function Navbar() {
                                     </svg>
                                 </li>
                                 <li>
-                                    <a href="/NPAtaxonomy" className="focus:outline-none border-b-2 border-transparent leading-none cursor-pointer h-full flex items-center hover:text-indigo-700 text-sm text-gray-600">
-                                        Browse Non-Patent Taxonomy 
-                                    </a>
+                                    <Link to="/NPAtaxonomy" >
+                                            Browse Non-Patent Taxonomy 
+                                    </Link>
                                 </li>
                                 <li>
                                     <svg className="mx-4" width={5} height={13} viewBox="0 0 5 13" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -133,21 +121,8 @@ export default function Navbar() {
                                                 </div>
                                             </button>
                                         </div>
-                                        <div className="h-full flex items-center">
-                                            <button  aria-label="dropdown" className="focus:outline-none mx-4 focus:text-gray-900 text-gray-800 border-b-2 border-transparent focus:border-gray-800 hover:text-gray-900 w-full flex items-center justify-end relative cursor-pointer">
-                                                <img className="rounded-full h-10 w-10 object-cover" src="https://i.ibb.co/GTLTzZY/Unsplash-Avatars-0000s-0035-azamat-zhanisov-a5s-RFie-A3-BY-unsplash-1.png" alt="Unsplash-Avatars-0000s-0035-azamat-zhanisov-a5s-RFie-A3-BY-unsplash-1" />
-                                            </button>
-                                        </div>
-                                        <div className="h-full flex items-center">
-                                            <button id="menu" aria-label="open menu" className="focus:outline-none focus:ring-2 focus:ring-gray-700 rounded-md text-gray-800" onClick={()=>setsideBar(!sideBar)}>
-                                                <svg width={30} height={30} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                    <path d="M21 10H3" stroke="#4B5563" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                                                    <path d="M21 6H3" stroke="#4B5563" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                                                    <path d="M21 14H3" stroke="#4B5563" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                                                    <path d="M21 18H3" stroke="#4B5563" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                                                </svg>
-                                            </button>
-                                        </div>
+                                       
+
                                     </div>
                                 </div>
                             </div>

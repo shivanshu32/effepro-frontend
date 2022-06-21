@@ -3,14 +3,15 @@ import SingleRecord from "./SingleRecord";
 import axios from "axios";
 
 // const baseURL = "http://localhost:4500/products";
-const baseURL = "https://effiepro.herokuapp.com/";
+const baseURL = "https://effiepro.herokuapp.com/npa";
 
 
-const DataTable = props => {
+const DataTableNPA = props => {
     const [post, setPost] = React.useState([]);
 React.useEffect(() => {
     axios.get(props.baseURL).then((response) => {
       console.log('hi')
+      console.log(typeof(response.data))
       console.log(response.data);
       setPost(response.data);
       
@@ -58,7 +59,7 @@ let rowCounter = 1;
 
                     <div className="container flex pr-24  items-center justify-end">
                     <label htmlFor="selectedPage1" className="hidden" />
-                <input id="selectedPage1" type="text" className="bg-white dark:bg-gray-800 w-12 px-2 mx-2 text-gray-800 dark:text-gray-100 focus:outline-none focus:border focus:border-indigo-700 font-normal flex items-center text-xs border-gray-300 dark:border-gray-200 rounded border" defaultValue={195} />
+                <input id="selectedPage1" type="text" className="bg-white dark:bg-gray-800 w-12 px-2 mx-2 text-gray-800 dark:text-gray-100 focus:outline-none focus:border focus:border-indigo-700 font-normal flex items-center text-xs border-gray-300 dark:border-gray-200 rounded border" defaultValue={77} />
                 <p className="-mt-1 text-gray-800 dark:text-gray-100 mr-6 fot-normal text-xs">Total Records</p>
 
 
@@ -331,4 +332,4 @@ let rowCounter = 1;
         </div>
     );
 };
-export default DataTable;
+export default DataTableNPA;

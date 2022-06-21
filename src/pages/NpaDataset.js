@@ -1,5 +1,5 @@
 import React from "react";
-import DataTable from "../components/DataTable";
+import DataTableNPA from "../components/DataTableNPA";
 
 const NpaDataset = () => {
   
@@ -7,7 +7,7 @@ const NpaDataset = () => {
 return(
     <div>
       
-      <DataTable />
+      <DataTableNPA baseURL="https://effiepro.herokuapp.com/npa" />
     </div>
     
 );

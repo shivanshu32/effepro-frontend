@@ -12,7 +12,7 @@ return(
       
      {/* {post.map((thispost) => <li>{thispost['Publication Number']}</li> )} */}
       {/* <p>{post.body}</p> */}
-      <DataTable />
+      <DataTable baseURL="https://effiepro.herokuapp.com/" />
     </div>
     
 );

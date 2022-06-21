@@ -18,14 +18,16 @@ const VisNetwork = () => {
       { id: 6, label: 'Production Process', shape: 'box', color: '#BACDE1'  },
       { id: 7, label: 'Benefits', shape: 'box', color: '#BACDE1'  }
     ];
-  
+    
+    
     const edges = [
       { from: 1, to: 2 },
       { from: 1, to: 3 },
       { from: 1, to: 4 },
       { from: 1, to: 5 },
       { from: 1, to: 6 },
-      { from: 1, to: 7 }
+      { from: 1, to: 7 },
+    
     ];
   
     const options = {
@@ -42,7 +44,11 @@ const VisNetwork = () => {
       container.current &&
       new Network(container.current, { nodes, edges }, options);
       network.on( 'click', function(properties) {
-        alert('clicked node ' + properties.nodes);
+        alert(typeof(properties.nodes[0]))
+        console.log(properties.nodes[0])
+        let obj = nodes.find(o => o.id === properties.nodes[0]);
+        console.log(obj.label)
+        alert('clicked node ' + obj.label);
     });
   }, []);
 
