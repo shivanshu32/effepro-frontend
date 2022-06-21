@@ -63,7 +63,7 @@ export default function Login() {
                         </div>
                         <div className="mt-8">
                         <Link to="/">
-                            <button role="button" className="focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700 text-sm font-semibold leading-none text-white focus:outline-none bg-indigo-700 border rounded hover:bg-indigo-600 py-4 w-full">
+                            <button className="focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700 text-sm font-semibold leading-none text-white focus:outline-none bg-indigo-700 border rounded hover:bg-indigo-600 py-4 w-full">
                                 Login
                             </button>
                             </Link>
@@ -90,7 +90,7 @@ export default function Login() {
                         </div>
                         <div className="flex items-center pl-8 mt-10">
                             <div className="w-8 h-8">
-                                <img src="https://i.ibb.co/xLtZCRT/Mask-Group.png" alt="profile picture" className="w-full h-full" />
+                                <img src="https://i.ibb.co/xLtZCRT/Mask-Group.png" alt="profile" className="w-full h-full" />
                             </div>
                             <div className="ml-2">
                                 <p className="text-sm font-medium leading-none text-gray-800">Anita Lane</p>
