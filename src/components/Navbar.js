@@ -50,14 +50,32 @@ Dataset
                             <div className="flex items-center">
                                 <div className="md:pr-10 lg:pr-0 h-full flex items-center">
                                     <div className="relative">
-                                        <div className="text-gray-600 absolute ml-3 inset-0 m-auto lg:w-4 lg:h-4 md:w-6 md:h-6">
+                                        {/* <div className="text-gray-600 absolute ml-3 inset-0 m-auto lg:w-4 lg:h-4 md:w-6 md:h-6">
                                             <svg xmlns="http://www.w3.org/2000/svg" className="text-gray-600 stroke-current icon icon-tabler icon-tabler-search" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">
                                                 <path stroke="none" d="M0 0h24v24H0z" />
                                                 <circle cx={10} cy={10} r={7} />
                                                 <line x1={21} y1={21} x2={15} y2={15} />
                                             </svg>
-                                        </div>
-                                        <input className="hidden lg:block border border-gray-200 focus:outline-none focus:border-indigo-700 w-64 rounded text-sm text-gray-800 pl-8 py-2" type="text" placeholder="Search here" />
+                                        </div> */}
+                                        {/* <input className="hidden lg:block border border-gray-200 focus:outline-none focus:border-indigo-700 w-64 rounded text-sm text-gray-800 pl-8 py-2" type="text" placeholder="Search here" /> */}
+                                   
+                                   
+                                        <div class=" hidden sm:flex justify-end flex-row lg:pr-7 sm:pr-6 py-6 pr-4 pl-8">
+                                {/* <div class="cursor-pointer focus:outline-none focus:ring focus:ring-offset-2 focus:ring-gray-800 relative flex justify-center items-center xl:mr-8 mr-6">
+                                    <img class="dark:bg-white rounded" src="https://tuk-cdn.s3.amazonaws.com/can-uploader/header-4-svg3.svg" alt="bell" />
+                                    <div class="animate-ping w-1.5 h-1.5 bg-indigo-700 rounded-full absolute top-1 right-0 m-auto duration-200"></div>
+                                    <div class=" w-1.5 h-1.5 bg-indigo-700 rounded-full absolute top-1 right-0 m-auto shadow-lg"></div>                                    
+                                </div> */}
+                                <div class=" flex justify-center items-center flex-row">
+                                    <img class="w-10 h-10 " src="https://i.ibb.co/QMddNDb/Ellipse-14.png" alt="individual person image-3" />
+                                    <div class="ml-2">
+                                        <p class="text-lg leading-4 font-semibold text-gray-800 dark:text-white ">Demo</p>
+                                        <p class=" font-normal text-xs leading-3 text-gray-600 dark:text-gray-200  mt-1">demo@effepro.com</p>
+                                    </div>
+                                    <img class="cursor-pointer dark:bg-white rounded py-2 px-1 transform duration-100 xl:ml-7 lg:ml-3.5 ml-2 focus:outline-none focus:ring focus:ring-offset-2 focus:ring-gray-800 " src="https://tuk-cdn.s3.amazonaws.com/can-uploader/header-4-svg4.svg" alt="rotate" />                                  
+                                </div>
+                            </div>
+
                                     </div>
                                 </div>
                       
@@ -67,7 +85,7 @@ Dataset
                        
                     </div>
                     <div className="container justify-between h-12 flex items-center bg-white md:items-stretch mx-auto">
-                        <div className="h-full flex items-center">
+                        <div className="h-full w-full flex items-center">
                             <ul className="pr-12 md:flex items-center h-full hidden">
                                 <li>
                                     <Link to="/NPAdataset" >
@@ -91,7 +109,14 @@ Dataset
                                 </li>
                                
                             </ul>
+
+                            
+
                         </div>
+                        <div tabindex="0" aria-label="indigo background badge justify-right" class="mt-2 focus:outline-none bg-indigo-700 h-8 w-3/4 mb-4 md:mb-0 rounded-full flex items-center justify-center">
+                        <span class="text-sm text-white font-normal">Project Name - Alternative protein sweeteners for soda/beverage
+</span>
+                    </div>
                     </div>
                 </nav>
                 {/* Navbar */}

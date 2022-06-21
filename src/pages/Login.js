@@ -5,8 +5,8 @@ export default function Login() {
     const [showpass, setShowPass] = useState(false)
     return (
         <>
-            <div className="bg-indigo-50">
-                <div className="xl:px-20 md:px-10 sm:px-6 px-4 md:py-12 py-9 2xl:mx-auto 2xl:container md:flex items-center justify-center">
+            <div className="bg-indigo-50" style={{height: '100vh'}}>
+                <div className="h-full xl:px-20 md:px-10 sm:px-6 px-4 md:py-12 py-9 2xl:mx-auto 2xl:container md:flex items-center justify-center">
                     <div className=" md:hidden sm:mb-8 mb-6">
                         <svg width={191} height={34} viewBox="0 0 191 34" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path
@@ -69,11 +69,14 @@ export default function Login() {
                             </Link>
                         </div>
                     </div>
-                    <div className="xl:w-1/3 md:w-1/2 lg:ml-16 ml-8 md:mt-0 mt-6">
-                        <div className="pl-8 md:block hidden">
-                           
+                    <div className="xl:w-1/3 md:w-1/2 lg:ml-16 ml-8 mt-6">
+                        <div className="pl-8 ">
+                        <img src="https://www.effectualservices.com/wp-content/uploads/2021/11/Effectual-Logo-2.png" alt="logo" />
                         </div>
                         <div className="flex items-start mt-8">
+
+
+
                             <div>
                                 <svg width={22} height={14} viewBox="0 0 22 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path
@@ -86,15 +89,18 @@ export default function Login() {
                                     />
                                 </svg>
                             </div>
-                            <p className="sm:text-2xl text-xl leading-7 text-gray-600 pl-2.5">EffePro offers detailed insights that can be viewed on beautiful user interface, I use EffePro for all my data visualization & analytics needs.</p>
+                            <p className="sm:text-2xl text-xl leading-7 text-gray-600 pl-2.5">
+                            The platform is a great alternative to big excel and PPT files. I use it on the go with my team. It even works really well on my phone and I can use it to download specific sections of report anytime.
+                            </p>
                         </div>
                         <div className="flex items-center pl-8 mt-10">
                             <div className="w-8 h-8">
                                 <img src="https://i.ibb.co/xLtZCRT/Mask-Group.png" alt="profile" className="w-full h-full" />
                             </div>
                             <div className="ml-2">
-                                <p className="text-sm font-medium leading-none text-gray-800">Anita Lane</p>
-                                <p className="text-sm font-medium leading-none text-gray-600 mt-1 cursor-pointer hover:underline">CEO, A leading Law Firm</p>
+                                <p className="text-sm font-medium leading-none text-gray-800">Colin Dexter</p>
+                                <p className="text-sm font-medium leading-none text-gray-600 mt-1 cursor-pointer hover:underline">Executive Director- Open Innovation </p>
+                                <p className="text-sm font-medium leading-none text-gray-600 mt-1 cursor-pointer hover:underline">Largest confectionary company in the world</p>
                             </div>
                         </div>
                     </div>

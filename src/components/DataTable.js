@@ -3,6 +3,7 @@ import SingleRecord from "./SingleRecord";
 import axios from "axios";
 import LoadingSpinner from "./LoadingSpinner";
 
+
 // const baseURL = "http://localhost:4500/products";
 // const baseURL = "https://effiepro.herokuapp.com/";
 
@@ -439,6 +440,8 @@ let rowCounter = 1;
                     </table>
                 </div>
             </div>
+
+           
            
         </div>
     );

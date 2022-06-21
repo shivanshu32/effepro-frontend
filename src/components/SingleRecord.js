@@ -1,7 +1,62 @@
 import React, { useState } from "react";
+import {  useRef } from 'react';
+import { Network } from 'vis-network';
+
+
 
 const SingleRecord = props => {
+    const container = useRef(null);
     const [dropdownStatus, setDropdownStatus] = useState(0);
+
+    const popuphandler = (flag) => {
+        //alert("popup handler")
+        if (flag) {
+            document.getElementById("popupContainer").classList.remove("hidden");
+        } else {
+            document.getElementById("popupContainer").classList.add("hidden");
+            
+        }
+    }
+
+    const expandTaxonomy = () => {
+        
+        popuphandler(true);
+        const nodes = [
+            { id: 1, label: 'Protein Sweetener', shape: 'diamond', color: '#F03967' },
+            { id: 2, label: 'Sweetness Index', shape: 'box', color: '#BACDE1'  },
+            { id: 3, label: 'Type of Drink', shape: 'box', color: '#BACDE1'  },
+            { id: 4, label: 'Composition Details',shape: 'box', color: '#BACDE1'  },
+            { id: 5, label: 'Storage Conditions', shape: 'box', color: '#BACDE1'  },
+            { id: 6, label: 'Production Process', shape: 'box', color: '#BACDE1'  },
+            { id: 7, label: 'Benefits', shape: 'box', color: '#BACDE1'  }
+          ];
+          
+          
+          const edges = [
+            { from: 1, to: 2 },
+            { from: 1, to: 3 },
+            { from: 1, to: 4 },
+            { from: 1, to: 5 },
+            { from: 1, to: 6 },
+            { from: 1, to: 7 },
+          
+          ];
+        
+          const options = {
+            // position: {x:x, y:x},    // position to animate to (Numbers)
+            scale: 2.0,              // scale to animate to  (Number)
+            // offset: {x:x, y:y},      // offset from the center in DOM pixels (Numbers)
+            animation: {             // animation object, can also be Boolean
+              duration: 1000,                 // animation duration in milliseconds (Number)
+              easingFunction: "easeInOutQuad" // Animation easing function, available are:
+            }                                   // linear, easeInQuad, easeOutQuad, easeInOutQuad,
+        }    
+          
+          const network =
+            container.current && new Network(container.current, { nodes, edges }, options);
+            
+    }
+
 return(
     <>
     <tr className="border-b border-gray-300 dark:border-gray-200">
@@ -48,7 +103,7 @@ return(
                                     <div class="relative">
                                           {/* Code block for white button ends */}
                 {/* Code block for button with icon starts */}
-                <button onClick="#" className="mx-2 my-2 flex items-center bg-white rounded border border-gray-300 text-gray-600 pl-3 pr-6 py-2 text-sm">
+                <button onClick={expandTaxonomy} className="mx-2 my-2 flex items-center bg-white rounded border border-gray-300 text-gray-600 pl-3 pr-6 py-2 text-sm">
                     <span className="h-4 w-4 mr-2">
                         <svg xmlns="www.w3.org/2000/svg" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">
                             <path stroke="none" d="M0 0h24v24H0z" />
@@ -189,6 +244,37 @@ return(
                                     </td>
                                 </tr>
                             )}
+    
+    <div id="popupContainer" className="z-50 fixed w-full hidden flex justify-center inset-0">
+                <div onClick={() => popuphandler(false)} className="w-full h-full bg-gray-900 z-0 absolute inset-0" />
+                <div className="mx-auto container">
+                    <div className="flex items-center justify-center h-full w-full">
+                        <div className="bg-white rounded-md shadow fixed overflow-y-auto sm:h-auto w-3/4 ">
+                            <div className="bg-gray-100 rounded-tl-md rounded-tr-md px-4 md:px-8 md:py-4 py-7 flex items-center justify-between">
+                                <p className="text-base font-semibold">{props.patentno}</p>
+                               
+                                
+                               
+
+                                <button onClick={() => popuphandler(false)} className="focus:outline-none">
+                                    <svg width={28} height={28} viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M21 7L7 21" stroke="#A1A1AA" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" />
+                                        <path d="M7 7L21 21" stroke="#A1A1AA" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" />
+                                    </svg>
+                                </button>
+                            </div>
+                            <div className="px-4 md:px-10 pt-6 md:pt-12 md:pb-4 pb-7">
+                            <div ref={container} style={{ height: '50vh', width: '100%' }} />
+                                {/* <MyDocViewer docpdflink={props.pdflink} />
+
+                                <Link to={props.pdflink} target="_blank" download>Download</Link>   */}
+                                  
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
     </>
 );
 }
