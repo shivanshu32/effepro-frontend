@@ -57,6 +57,7 @@ const DataTable = props => {
 
            // alert(patentno);
         })
+        console.log(tempArray);
         setPost(newArray);
         setIsLoading(false);
        
