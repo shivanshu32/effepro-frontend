@@ -94,9 +94,9 @@ export default function Login() {
                             </p>
                         </div>
                         <div className="flex items-center pl-8 mt-10">
-                            <div className="w-8 h-8">
+                            {/* <div className="w-8 h-8">
                                 <img src="https://i.ibb.co/xLtZCRT/Mask-Group.png" alt="profile" className="w-full h-full" />
-                            </div>
+                            </div> */}
                             <div className="ml-2">
                                 <p className="text-sm font-medium leading-none text-gray-800">Colin Dexter</p>
                                 <p className="text-sm font-medium leading-none text-gray-600 mt-1 cursor-pointer hover:underline">Executive Director- Open Innovation </p>
