@@ -1,11 +1,24 @@
-import React from "react";
 
+// import React, { useContext, useState } from "react";
 import DataTable from "../components/DataTable";
 import Navbar from '../components/Navbar'
+// import { UserContext } from "../App";
 
-const Dataset = () => {
+const Dataset = props => {
+  // const thisHandler = () => {
+  //   props.stateHandler
+  // props.addnewState("https://effiepro.herokuapp.com/pa");
+
+  // }
+//alert(props.thisbaseURL)
+
+  // const paURL = useContext(UserContext);  
   
-    
+   // alert(paURL);
+    // console.log(npaURL);
+  
+  
+
 return(
   <>
   <Navbar />
@@ -15,7 +28,7 @@ return(
       
      {/* {post.map((thispost) => <li>{thispost['Publication Number']}</li> )} */}
       {/* <p>{post.body}</p> */}
-      <DataTable baseURL="https://effiepro.herokuapp.com/" />
+      <DataTable baseURL={props.thisbaseURL} addnewState={props.addnewState} />
     </div>
   </>
     

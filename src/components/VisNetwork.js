@@ -1,8 +1,10 @@
 import React, { useEffect, useRef } from 'react';
+import { useNavigate } from "react-router-dom";
 import { Network } from 'vis-network';
 
-const VisNetwork = () => {
+const VisNetwork = props => {
 	const container = useRef(null);
+  const navigate = useNavigate();
 
   
 
@@ -44,11 +46,14 @@ const VisNetwork = () => {
       container.current &&
       new Network(container.current, { nodes, edges }, options);
       network.on( 'click', function(properties) {
-        alert(typeof(properties.nodes[0]))
-        console.log(properties.nodes[0])
+        //alert(typeof(properties.nodes[0]))
+        //console.log(properties.nodes[0])
         let obj = nodes.find(o => o.id === properties.nodes[0]);
-        console.log(obj.label)
-        alert('clicked node ' + obj.label);
+        //console.log(obj.label)
+        let urlBase = "https://effiepro.herokuapp.com/pa/" + obj.label;
+        //alert('clicked node ' + obj.label);
+        props.addnewState(urlBase);
+        navigate("/dataset");
     });
   }, []);
 

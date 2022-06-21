@@ -10,6 +10,75 @@ import LoadingSpinner from "./LoadingSpinner";
 const DataTable = props => {
     const [post, setPost] = React.useState([]);
 
+    const searchKeyword = () => {
+        const thisKeyword = document.getElementById("searchbox").value;
+        setIsLoading(true);
+        let newArray = [];
+        //alert(thisKeyword)
+        //alert(typeof(post))
+        post.map((thispost,i) => {
+            
+            const patentno=thispost['Publication Number'];
+            const title = thispost['Title'];
+            const assignee = thispost['Current Owner'];
+            const publication = thispost['Publication/Issue Date'];
+            const application = thispost['Filing/Application Date'];
+            const legal = thispost['Legal Status'];
+            const inventor = thispost['Inventors'];
+            const extended = thispost['Extended Family Members'];
+            const ipcclass = thispost['ICR'];
+            const cpcclass = thispost['CPC'];
+            const usclass = thispost['US Class (UC)'];
+            const abstract = thispost['Abstract'];
+            const fullclaims = thispost['Full Claims'];
+
+            let needleFind = 0;
+
+            if(patentno != undefined && patentno.includes(thisKeyword)) { needleFind = 1 }
+            if(title != undefined && title.includes(thisKeyword)) { needleFind = 1 }
+            if(assignee != undefined && assignee.includes(thisKeyword)) { needleFind = 1 }
+            if(publication != undefined && publication.includes(thisKeyword)) { needleFind = 1 }
+            if(application != undefined && application.includes(thisKeyword)) { needleFind = 1 }
+            if(legal != undefined && legal.includes(thisKeyword)) { needleFind = 1 }
+            if(inventor != undefined && inventor.includes(thisKeyword)) { needleFind = 1 }
+            if(extended != undefined && extended.includes(thisKeyword)) { needleFind = 1 }
+            if(ipcclass != undefined && ipcclass.includes(thisKeyword)) { needleFind = 1 }
+            if(cpcclass != undefined && cpcclass.includes(thisKeyword)) { needleFind = 1 }
+            if(usclass != undefined && usclass.includes(thisKeyword)) { needleFind = 1 }
+            if(abstract != undefined && abstract.includes(thisKeyword)) { needleFind = 1 }
+            if(fullclaims != undefined && fullclaims.includes(thisKeyword)) { needleFind = 1 }
+            
+            if(needleFind === 1)
+            {
+              newArray.push(thispost)
+            }
+
+
+           // alert(patentno);
+        })
+        setPost(newArray);
+        setIsLoading(false);
+       
+    }
+
+    const resetHandler = () =>
+    {
+        setIsLoading(true);
+        document.getElementById("searchbox").value = "";
+            axios.get("https://effiepro.herokuapp.com/").then((response) => {
+              console.log('hi')
+              console.log(response.data);
+              setPost(response.data);
+              setIsLoading(false);
+              
+            });
+        
+        
+        
+        
+        
+    }
+
 React.useEffect(() => {
     axios.get(props.baseURL).then((response) => {
       console.log('hi')
@@ -94,7 +163,7 @@ let rowCounter = 1;
                         
                     </div>
                     <div className="w-full md:w-1/2 flex flex-col md:flex-row items-start md:items-center justify-end">
-                        
+                    
                     <div className="flex flex-col w-full  md:ml-4 mt-3 md:mt-0">
                             <div className="relative w-full">
                                 <div className="absolute cursor-pointer text-gray-600 dark:text-gray-400 flex items-center pr-3 right-0 border-l h-full">
@@ -114,10 +183,40 @@ let rowCounter = 1;
                                     </svg>
                                 </div>
                                 <label htmlFor="search" className="hidden text-gray-800 dark:text-gray-100 text-sm font-bold leading-tight tracking-normal mb-2" />
-                                <input id="search" className="w-full bg-transparent dark:bg-gray-800 text-gray-600 dark:text-gray-400 focus:outline-none focus:border focus:border-indigo-700 font-normal pl-8 pr-24 h-10 flex items-center text-sm border-gray-300 dark:border-gray-200 rounded border" placeholder="Search here" />
+                                
+
+                                <div className="relative">
+                        <div className="absolute text-gray-600 dark:text-gray-400 flex items-center pl-3 border-r dark:border-gray-700 h-full pr-1">
+                            <select className="uppercase text-sm leading-tight tracking-normal focus:outline-none h-8 appearance-none pr-6 z-20 relative bg-transparent">
+                                <option value="usd">All</option>
+                                <option value="aus">Patent No</option>
+                                <option value="pak">Title</option>
+                                <option value="pak">Abstract</option>
+                                <option value="pak">Claims</option>
+                                <option value="pak">Assignee</option>
+                                <option value="pak">Inventor</option>
+                                
+                            </select>
+                            <div className="mx-1 absolute right-0 z-10">
+                                <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-chevron-down" width={20} height={20} viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">
+                                    <path stroke="none" d="M0 0h24v24H0z" />
+                                    <polyline points="6 9 12 15 18 9" />
+                                </svg>
                             </div>
                         </div>
-                    
+                        <input id="searchbox" className="text-gray-600 dark:text-gray-400 focus:outline-none focus:border focus:border-indigo-700 dark:focus:border-indigo-700 dark:border-gray-700 dark:bg-gray-800 font-normal w-full h-10 flex items-center pl-36 text-sm border-gray-300 rounded border shadow" placeholder="Search Here" />
+                    </div>
+
+                                {/* <input id="search" className="w-full bg-transparent dark:bg-gray-800 text-gray-600 dark:text-gray-400 focus:outline-none focus:border focus:border-indigo-700 font-normal pl-8 pr-24 h-10 flex items-center text-sm border-gray-300 dark:border-gray-200 rounded border" placeholder="Search here" />
+                            
+                                */}
+
+                            </div>
+                        </div>
+                        <button onClick={searchKeyword} className="mx-2 my-2 bg-white transition duration-150 ease-in-out hover:border-indigo-600 hover:text-indigo-600 rounded border border-indigo-700 text-indigo-600 px-6 py-2 text-sm">Search</button>
+               
+                        <button onClick={resetHandler} className="mx-2 my-2 bg-white transition duration-150 ease-in-out hover:border-red-600 hover:text-red-600 rounded border border-red-700 text-red-600 px-6 py-2 text-sm">Reset</button>
+               
 
                         
                         

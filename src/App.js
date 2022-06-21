@@ -10,14 +10,25 @@ import NPATaxonomy from './pages/NpaTaxonomy';
 import NPADataset from './pages/NpaDataset';
 import Dataset from './pages/Dataset'
 import Login from './pages/Login';
+import { useState } from "react";
 
-
-export const UserContext = React.createContext();
- 
+// export const UserContext = React.createContext();
 
 
 const App = () => {
+
+const [mainBaseURLPA, setMainBaseUrlPA] = useState("https://effiepro.herokuapp.com/pa");
+
+const stateHandler = newState =>
+{
+  console.log(mainBaseURLPA);
+  //alert(newState)
+  setMainBaseUrlPA(newState)
+}
   
+   
+// const [mainBaseURLNPA, setMainBaseUrlNPA] = useState("https://effiepro.herokuapp.com/npa");
+
   return (
   //  <>
   //  {/* <Navbar />
@@ -26,7 +37,7 @@ const App = () => {
    
   //  </>
   <Router>
-      <UserContext.Provider value="Reed">
+      {/* <UserContext.Provider value={mainBaseURLPA}> */}
    
     <Routes>
     <Route exact path="/dashboard" element={<Dashboard />} />
@@ -36,10 +47,10 @@ const App = () => {
    
     {/* <Dashboard /> */}
     {/* </Route> */}
-    <Route path="/taxonomy" exact element={<Taxonomy />} />
+    <Route path="/taxonomy" exact element={<Taxonomy addnewState={stateHandler}  />} />
       {/* <Taxonomy />
     </Route> */}
-    <Route path="/dataset" exact element={<Dataset />} />
+    <Route path="/dataset" exact element={<Dataset addnewState={stateHandler}  thisbaseURL={mainBaseURLPA} />} />
       {/* <Dataset />
     </Route> */}
     <Route path="/NPAtaxonomy" exact element={<NPATaxonomy />} />
@@ -49,7 +60,7 @@ const App = () => {
       {/* <NPADataset />
     </Route> */}
     </Routes>
-    </UserContext.Provider>
+    {/* </UserContext.Provider> */}
   </Router>
   )
 }

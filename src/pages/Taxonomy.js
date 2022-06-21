@@ -3,11 +3,12 @@ import VisNetwork from '../components/VisNetwork';
 import Navbar from '../components/Navbar'
 
 
-const Taxonomy = () => {
+const Taxonomy = props => {
+    
 return(
     <div className="">
     <Navbar />
-    <VisNetwork />
+    <VisNetwork addnewState={props.addnewState} />
     </div>
 );
 }
