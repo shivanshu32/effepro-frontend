@@ -52,8 +52,8 @@ const SingleRecord = props => {
             }                                   // linear, easeInQuad, easeOutQuad, easeInOutQuad,
         }    
           
-          const network =
-            container.current && new Network(container.current, { nodes, edges }, options);
+          const network = container.current && new Network(container.current, { nodes, edges }, options);
+          console.log(network)
             
     }
 

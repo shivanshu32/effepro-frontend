@@ -67,7 +67,7 @@ Dataset
                                     <div class=" w-1.5 h-1.5 bg-indigo-700 rounded-full absolute top-1 right-0 m-auto shadow-lg"></div>                                    
                                 </div> */}
                                 <div class=" flex justify-center items-center flex-row">
-                                    <img class="w-10 h-10 " src="https://i.ibb.co/QMddNDb/Ellipse-14.png" alt="individual person image-3" />
+                                    <img class="w-10 h-10 " src="https://i.ibb.co/QMddNDb/Ellipse-14.png" alt="individual person" />
                                     <div class="ml-2">
                                         <p class="text-lg leading-4 font-semibold text-gray-800 dark:text-white ">Demo</p>
                                         <p class=" font-normal text-xs leading-3 text-gray-600 dark:text-gray-200  mt-1">demo@effepro.com</p>
