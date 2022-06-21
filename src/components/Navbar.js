@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import {Link, BrowserRouter as Router} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 export default function Navbar() {
     const [sideBar, setsideBar] = useState();
     return (

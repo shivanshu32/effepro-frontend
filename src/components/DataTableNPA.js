@@ -3,7 +3,7 @@ import SingleRecord from "./SingleRecord";
 import axios from "axios";
 
 // const baseURL = "http://localhost:4500/products";
-const baseURL = "https://effiepro.herokuapp.com/npa";
+// const baseURL = "https://effiepro.herokuapp.com/npa";
 
 
 const DataTableNPA = props => {
