@@ -34,19 +34,19 @@ const DataTable = props => {
 
             let needleFind = 0;
 
-            if(patentno != undefined && patentno.includes(thisKeyword)) { needleFind = 1 }
-            if(title != undefined && title.includes(thisKeyword)) { needleFind = 1 }
-            if(assignee != undefined && assignee.includes(thisKeyword)) { needleFind = 1 }
-            if(publication != undefined && publication.includes(thisKeyword)) { needleFind = 1 }
-            if(application != undefined && application.includes(thisKeyword)) { needleFind = 1 }
-            if(legal != undefined && legal.includes(thisKeyword)) { needleFind = 1 }
-            if(inventor != undefined && inventor.includes(thisKeyword)) { needleFind = 1 }
-            if(extended != undefined && extended.includes(thisKeyword)) { needleFind = 1 }
-            if(ipcclass != undefined && ipcclass.includes(thisKeyword)) { needleFind = 1 }
-            if(cpcclass != undefined && cpcclass.includes(thisKeyword)) { needleFind = 1 }
-            if(usclass != undefined && usclass.includes(thisKeyword)) { needleFind = 1 }
-            if(abstract != undefined && abstract.includes(thisKeyword)) { needleFind = 1 }
-            if(fullclaims != undefined && fullclaims.includes(thisKeyword)) { needleFind = 1 }
+            if(patentno !== undefined && patentno.includes(thisKeyword)) { needleFind = 1 }
+            if(title !== undefined && title.includes(thisKeyword)) { needleFind = 1 }
+            if(assignee !== undefined && assignee.includes(thisKeyword)) { needleFind = 1 }
+            if(publication !== undefined && publication.includes(thisKeyword)) { needleFind = 1 }
+            if(application !== undefined && application.includes(thisKeyword)) { needleFind = 1 }
+            if(legal !== undefined && legal.includes(thisKeyword)) { needleFind = 1 }
+            if(inventor !== undefined && inventor.includes(thisKeyword)) { needleFind = 1 }
+            if(extended !== undefined && extended.includes(thisKeyword)) { needleFind = 1 }
+            if(ipcclass !== undefined && ipcclass.includes(thisKeyword)) { needleFind = 1 }
+            if(cpcclass !== undefined && cpcclass.includes(thisKeyword)) { needleFind = 1 }
+            if(usclass !== undefined && usclass.includes(thisKeyword)) { needleFind = 1 }
+            if(abstract !== undefined && abstract.includes(thisKeyword)) { needleFind = 1 }
+            if(fullclaims !== undefined && fullclaims.includes(thisKeyword)) { needleFind = 1 }
             
             if(needleFind === 1)
             {

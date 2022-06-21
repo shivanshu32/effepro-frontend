@@ -55,7 +55,7 @@ const VisNetwork = props => {
         props.addnewState(urlBase);
         navigate("/dataset");
     });
-  }, []);
+  }, [navigate,props]);
 
   return <div ref={container} style={{ height: '100vh', width: '100%' }} />;
 };
