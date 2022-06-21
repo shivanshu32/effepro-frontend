@@ -191,7 +191,7 @@ let rowCounter = 1;
                                     onclick="dropdownFunction(this)"
                                 >
                                     <div className="flex items-center justify-between relative">
-                                        <p className="text-gray-800 dark:text-gray-100 font-normal text-left text-xs tracking-normal leading-4">Publication No.</p>
+                                        <p className="text-gray-800 dark:text-gray-100 font-normal text-left text-xs tracking-normal leading-4">Publication Year</p>
                                         <div className="cursor-pointer mr-3 text-gray-800 dark:text-gray-100">
                                             <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-chevron-down" width={16} height={16} viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">
                                                 <path stroke="none" d="M0 0h24v24H0z" />
@@ -217,7 +217,7 @@ let rowCounter = 1;
                                     onclick="dropdownFunction(this)"
                                 >
                                     <div className="flex items-center justify-between relative">
-                                        <p className="text-gray-800 dark:text-gray-100 font-normal text-left text-xs tracking-normal leading-4">Assignee</p>
+                                        <p className="text-gray-800 dark:text-gray-100 font-normal text-left text-xs tracking-normal leading-4">Literature Focus</p>
                                         <div className="cursor-pointer mr-3 text-gray-800 dark:text-gray-100">
                                             <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-chevron-down" width={16} height={16} viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">
                                                 <path stroke="none" d="M0 0h24v24H0z" />
@@ -242,7 +242,7 @@ let rowCounter = 1;
                                     onclick="dropdownFunction(this)"
                                 >
                                     <div className="flex items-center justify-between relative ">
-                                        <p className="text-gray-800 dark:text-gray-100 font-normal text-left text-xs tracking-normal leading-4">Uploaded On</p>
+                                        <p className="text-gray-800 dark:text-gray-100 font-normal text-left text-xs tracking-normal leading-4">Author</p>
                                         <svg xmlns="http://www.w3.org/2000/svg" className="cursor-pointer mr-3 text-gray-800 dark:text-gray-100 icon icon-tabler icon-tabler-chevron-down" width={16} height={16} viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">
                                             <path stroke="none" d="M0 0h24v24H0z" />
                                             <polyline points="6 9 12 15 18 9" />
@@ -265,7 +265,7 @@ let rowCounter = 1;
                                     onclick="dropdownFunction(this)"
                                 >
                                     <div className="flex items-center justify-between relative ">
-                                        <p className="text-gray-800 dark:text-gray-100 font-normal text-left text-xs tracking-normal leading-4">Published on</p>
+                                        <p className="text-gray-800 dark:text-gray-100 font-normal text-left text-xs tracking-normal leading-4">Affiliation</p>
                                         <div className="cursor-pointer mr-3 text-gray-800 dark:text-gray-100">
                                             <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-chevron-down" width={16} height={16} viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">
                                                 <path stroke="none" d="M0 0h24v24H0z" />
@@ -292,11 +292,11 @@ let rowCounter = 1;
                         {isLoading ? <LoadingSpinner /> : console.log('tets')}
                             
                             {post.map((thispost, i) => 
-                            <SingleRecord patentno={thispost['Publication Number']} 
+                            <SingleRecord patentno={thispost['Publication year']} 
                             title = {thispost['Title']} 
-                            assignee = {thispost['Current Owner']} 
-                            publication = {thispost['Publication/Issue Date']}
-                            application = {thispost['Filing/Application Date']}
+                            assignee = {thispost['Literature Focus']} 
+                            publication = {thispost['Affiliation']}
+                            application = {thispost['Author']}
                             legal = {thispost['Legal Status']}
                             inventor = {thispost['Inventors']}
                             extended = {thispost['Extended Family Members']}
