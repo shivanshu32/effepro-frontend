@@ -20,7 +20,7 @@ React.useEffect(() => {
 
 
 
-  }, []);
+  }, [props.baseURL]);
 
 // if (!post) return null;
 
