@@ -1,4 +1,5 @@
 import React from "react";
+import {Link} from 'react-router-dom';
 import ObjectiveWidget from "./widgets/ObjectiveWidget";
 import ProposedStrategy from "./widgets/ProposedStrategy";
 import RankingWidget from "./widgets/RankingWidget";
@@ -55,6 +56,9 @@ export default function CardHome(props) {
                         <p tabindex="0" class="focus:outline-none text-base font-semibold leading-5 md:leading-10 text-white">8</p>
                     </div> */}
                 </div> 
+
+
+
                 <svg xmlns="http://www.w3.org/2000/svg" role="button" tabindex="0" class="focus:ring-2 focus:ring-offset-2 focus:ring-gray-600 focus:outline-none w-6 md:w-auto dark:text-gray-100 cursor-pointer icon icon-tabler icon-tabler-chevron-down" width="20" height="20" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                     <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                     <polyline points="6 9 12 15 18 9" />
@@ -109,6 +113,8 @@ export default function CardHome(props) {
                                 <p className="text-base font-semibold">{props.title}</p>
                                
                                 
+                               
+
                                 <button onClick={() => popuphandler(false,thisPopupId)} className="focus:outline-none">
                                     <svg width={28} height={28} viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M21 7L7 21" stroke="#A1A1AA" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" />
@@ -117,8 +123,11 @@ export default function CardHome(props) {
                                 </button>
                             </div>
                             <div className="px-4 md:px-10 pt-6 md:pt-12 md:pb-4 pb-7">
-                                
+                           
                                 <MyDocViewer docpdflink={props.pdflink} />
+
+                                <Link to={props.pdflink} target="_blank" download>Download</Link>  
+                                  
                                 
                             </div>
                         </div>

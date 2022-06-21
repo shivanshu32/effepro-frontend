@@ -1,5 +1,6 @@
 import './App.css';
-import Navbar from './components/Navbar'
+
+
 import Dashboard from './pages/Dashboard'
 // import CardHome from './components/CardHome';
 import React from 'react';
@@ -8,8 +9,9 @@ import Taxonomy from './pages/Taxonomy'
 import NPATaxonomy from './pages/NpaTaxonomy';
 import NPADataset from './pages/NpaDataset';
 import Dataset from './pages/Dataset'
+import Login from './pages/Login';
 
-
+export const UserContext = React.createContext();
  
 
 
@@ -23,11 +25,14 @@ const App = () => {
    
   //  </>
   <Router>
-    <Navbar />
+      <UserContext.Provider value="Reed">
+   
     <Routes>
-    
-    
+    <Route exact path="/login" element={<Login />} />
+   
     <Route exact path="/" element={<Dashboard />} />
+
+   
     {/* <Dashboard /> */}
     {/* </Route> */}
     <Route path="/taxonomy" exact element={<Taxonomy />} />
@@ -43,7 +48,7 @@ const App = () => {
       {/* <NPADataset />
     </Route> */}
     </Routes>
-   
+    </UserContext.Provider>
   </Router>
   )
 }

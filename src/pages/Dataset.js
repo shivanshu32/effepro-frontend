@@ -1,12 +1,15 @@
 import React from "react";
 
 import DataTable from "../components/DataTable";
+import Navbar from '../components/Navbar'
 
 const Dataset = () => {
   
     
 return(
-    <div>
+  <>
+  <Navbar />
+  <div>
       {/* <h1>{post[0]['Publication Number']}</h1> */}
       
       
@@ -14,6 +17,8 @@ return(
       {/* <p>{post.body}</p> */}
       <DataTable baseURL="https://effiepro.herokuapp.com/" />
     </div>
+  </>
+    
     
 );
 }

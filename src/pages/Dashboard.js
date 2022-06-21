@@ -1,11 +1,13 @@
 import React from "react";
 import CardHome from "../components/CardHome"
 import TableCompare from "../components/TableCompare";
+import Navbar from '../components/Navbar'
 
 
 function Dashboard() {
     return (
         <>
+        <Navbar/>
             <div className="container pt-6 mx-auto">
 
                 <div className="flex  flex-wrap py-4">
@@ -22,7 +24,7 @@ function Dashboard() {
                 </div>
 
             </div>
-            <TableCompare />
+           
 
             <div className="container pt-6 mx-auto">
 
@@ -75,6 +77,8 @@ function Dashboard() {
                 </div>
 
             </div>
+
+            <TableCompare />
            
             {/* <div id="pdfcontainer">
             <MyDocViewer />
