@@ -147,7 +147,7 @@ return(
                                     <div class="">
                                             {/* Code block for white button ends */}
                 {/* Code block for button with icon starts */}
-                <a href={"https://www.effepro.com/patentpdf/" + props.patentno + ".pdf"}  target="_blank" rel="opener"  className="mx-2 my-2 flex items-center bg-white rounded border border-gray-300 text-gray-600 pl-3 pr-6 py-2 text-sm">
+                <a href={"https://www.effepro.com/patentpdf/" + props.patentno + ".pdf"}  target="_blank" rel="noreferrer"  className="mx-2 my-2 flex items-center bg-white rounded border border-gray-300 text-gray-600 pl-3 pr-6 py-2 text-sm">
                     <span className="h-4 w-4 mr-2">
                         <svg xmlns="www.w3.org/2000/svg" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">
                             <path stroke="none" d="M0 0h24v24H0z" />
