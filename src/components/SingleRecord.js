@@ -9,6 +9,17 @@ const SingleRecord = props => {
     const container = useRef(null);
     const [dropdownStatus, setDropdownStatus] = useState(0);
 
+    const handleAddComment = () => {
+        const thisvalue = document.getElementById('addCommentText').value;
+
+        const thistext = '<div class="p-5 bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-900"><div><div class="flex items-center py-5"><div class="ml-2 w-full"><div class="flex items-center justify-between"><h3 class="text-sm text-gray-700 dark:text-gray-100">Demo</h3><p class="text-xs text-gray-600 dark:text-gray-200">Just Now</p></div></div> </div><p class="text-xs leading-snug text-gray-600 dark:text-gray-200">'+ thisvalue +'</p></div></div>'
+        
+        
+
+        document.getElementById("commentContainer").innerHTML = thistext;
+
+    }
+
     const popuphandler = (flag) => {
         //alert("popup handler")
         if (flag) {
@@ -315,7 +326,28 @@ return(
                                 </button>
                             </div>
                             <div className="px-4 md:px-10 pt-6  md:pb-4 pb-7">
-                                No Comments Found
+                <div id="commentContainer">
+                No Comments Found
+                </div>
+                               
+
+                                {/* test div start */}
+                                {/* <div class="p-5 bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-900">
+                <div>
+                  <div class="flex items-center py-5">
+                
+                    <div class="ml-2 w-full">
+                      <div class="flex items-center justify-between">
+                        <h3 class="text-sm text-gray-700 dark:text-gray-100">Demo</h3>
+                        <p class="text-xs text-gray-600 dark:text-gray-200">Just Now</p>
+                      </div>
+                      
+                    </div>
+                  </div>
+                  <p class="text-xs leading-snug text-gray-600 dark:text-gray-200">Greatest appreciation to you and your team for the outstanding job you did for us. The website is just what we wanted, and we were thrilled with the speed your team exercised. We feel privileged to have eLab communications.</p>
+                </div>
+              </div> */}
+                                {/* test div end  */}
 
                                 {/* input start */}
                                 <div class="pt-6 border-gray-300 mt-2 px-7">
@@ -364,7 +396,7 @@ return(
 
             </div>
         </div>
-        <textarea class="resize-none w-full h-[170px] px-4 py-4 text-base outline-none text-slate-600" placeholder="Start typing here ..."> </textarea>
+        <textarea id="addCommentText" class="resize-none w-full h-[170px] px-4 py-4 text-base outline-none text-slate-600" placeholder="Start typing here ..."> </textarea>
     </div>
 </div>
 
@@ -372,7 +404,7 @@ return(
                         <button class="bg-white border-indigo-700 rounded hover:bg-gray-50 transform duration-300 ease-in-out text-sm font-medium px-6 py-4 text-indigo-700 border lg:max-w-[95px]  w-full ">
                             Reset
                         </button>
-                        <button class="bg-indigo-700 rounded hover:bg-indigo-600 transform duration-300 ease-in-out text-sm font-medium px-6 py-4 text-white lg:max-w-[144px] w-full ">
+                        <button onClick={handleAddComment} class="bg-indigo-700 rounded hover:bg-indigo-600 transform duration-300 ease-in-out text-sm font-medium px-6 py-4 text-white lg:max-w-[144px] w-full ">
                             Add Comment
                         </button>
                     </div>
