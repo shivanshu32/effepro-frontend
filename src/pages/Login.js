@@ -62,7 +62,7 @@ export default function Login() {
                             </div>
                         </div>
                         <div className="mt-8">
-                        <Link to="/">
+                        <Link to="/dashboard">
                             <button className="focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700 text-sm font-semibold leading-none text-white focus:outline-none bg-indigo-700 border rounded hover:bg-indigo-600 py-4 w-full">
                                 Login
                             </button>

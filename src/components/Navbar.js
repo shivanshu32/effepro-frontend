@@ -22,7 +22,7 @@ export default function Navbar() {
                                     
                               
                                <Link
-              to="/"
+              to="/dashboard"
             >
                                        Dashboard
                                        </Link>
