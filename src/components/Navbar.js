@@ -4,19 +4,19 @@ export default function Navbar() {
     
 
 const openDataset = () => {
-    var link = document.getElementById('taxshow');
-    link.style.display = 'none'; 
-    var link = document.getElementById('datashow');
-    link.style.display = 'block'; 
+    var thislink = document.getElementById('taxshow');
+    thislink.style.display = 'none'; 
+    var thislink = document.getElementById('datashow');
+    thislink.style.display = 'block'; 
 }
 
 const openTaxonomy = () => {
 
     
-    var link = document.getElementById('datashow');
-    link.style.display = 'none'; 
-    var link = document.getElementById('taxshow');
-    link.style.display = 'block'; 
+    var thislink = document.getElementById('datashow');
+    thislink.style.display = 'none'; 
+    var thislink = document.getElementById('taxshow');
+    thislink.style.display = 'block'; 
 }
 
     const [sideBar, setsideBar] = useState();
