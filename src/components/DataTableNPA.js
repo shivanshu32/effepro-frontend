@@ -38,7 +38,7 @@ const DataTableNPA = props => {
                     });
         }
     
-      }, [props.pataxonomyFilter]);
+      }, []);
 
 
     const searchKeyword = () => {
