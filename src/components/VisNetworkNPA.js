@@ -57,7 +57,7 @@ const VisNetworkNPA = props => {
         // alert('clicked node ' + properties.nodes);
         //alert(typeof(properties.nodes[0]))
         //console.log(properties.nodes[0])
-        let obj = nodes.find(o => o.id === properties.nodes[0]);
+        // let obj = nodes.find(o => o.id === properties.nodes[0]);
         //console.log(obj.label)
         // let urlBase = "https://effiepro.herokuapp.com/npa/" + obj.label;
         //alert('clicked node ' + obj.label);

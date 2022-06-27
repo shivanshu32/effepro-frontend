@@ -6,7 +6,7 @@ export default function Navbar() {
 const openDataset = () => {
     var thislink = document.getElementById('taxshow');
     thislink.style.display = 'none'; 
-    var thislink = document.getElementById('datashow');
+    thislink = document.getElementById('datashow');
     thislink.style.display = 'block'; 
 }
 
@@ -15,7 +15,7 @@ const openTaxonomy = () => {
     
     var thislink = document.getElementById('datashow');
     thislink.style.display = 'none'; 
-    var thislink = document.getElementById('taxshow');
+    thislink = document.getElementById('taxshow');
     thislink.style.display = 'block'; 
 }
 
