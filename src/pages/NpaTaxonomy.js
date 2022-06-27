@@ -4,11 +4,11 @@ import Navbar from '../components/Navbar'
 
 
 
-const NPATaxonomy = () => {
+const NPATaxonomy = props => {
 return(
     <div className="">
     <Navbar />
-    <VisNetworkNPA />
+    <VisNetworkNPA stateHandlerNPA={props.stateHandlerNPA} />
     </div>
 );
 }

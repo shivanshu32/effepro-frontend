@@ -8,7 +8,7 @@ const Taxonomy = props => {
 return(
     <div className="">
     <Navbar />
-    <VisNetwork addnewState={props.addnewState} />
+    <VisNetwork stateHandlerPA={props.stateHandlerPA} addnewState={props.addnewState} />
     </div>
 );
 }

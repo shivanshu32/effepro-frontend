@@ -28,7 +28,7 @@ return(
       
      {/* {post.map((thispost) => <li>{thispost['Publication Number']}</li> )} */}
       {/* <p>{post.body}</p> */}
-      <DataTable baseURL={props.thisbaseURL} addnewState={props.addnewState} />
+      <DataTable pataxonomyFilter={props.pataxonomyFilter} patentDataset={props.patentDataset} baseURL={props.thisbaseURL} addnewState={props.addnewState} />
     </div>
   </>
     

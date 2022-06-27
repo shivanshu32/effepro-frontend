@@ -2,7 +2,7 @@ import React from "react";
 import DataTableNPA from "../components/DataTableNPA";
 import Navbar from '../components/Navbar'
 
-const NpaDataset = () => {
+const NpaDataset = props => {
   
     
 return(
@@ -10,7 +10,7 @@ return(
   <Navbar />
     <div>
       
-      <DataTableNPA baseURL="https://effiepro.herokuapp.com/npa" />
+      <DataTableNPA npataxonomyFilter={props.npataxonomyFilter} nonpatentDataset={props.nonpatentDataset} baseURL="https://effiepro.herokuapp.com/npa" />
     </div>
     </>
     

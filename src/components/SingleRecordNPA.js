@@ -5,7 +5,7 @@ import { Network } from 'vis-network';
 
 
 
-const SingleRecord = props => {
+const SingleRecordNPA = props => {
     // alert(typeof(props.application));
     // return;
     const container = useRef(null);
@@ -117,16 +117,16 @@ return(
                                     </div>
                                 </td>
 
-                                <td className="pl-4 whitespace-no-wrap w-64">
+                                {/* <td className="pl-4 whitespace-no-wrap w-64">
                                     <p className="text-gray-800 dark:text-gray-100 font-normal text-left text-xs tracking-normal leading-4">{props.legal}</p>
-                                </td>
+                                </td> */}
                                 
                                 <td className="pl-4 whitespace-no-wrap w-64">
                                     <p className="text-gray-800 dark:text-gray-100 font-normal text-left text-xs tracking-normal leading-4">{props.assignee}</p>
                                 </td>
-                                <td className="pl-4 whitespace-no-wrap w-64">
+                                {/* <td className="pl-4 whitespace-no-wrap w-64">
                                     <p className="text-gray-800 dark:text-gray-100 font-normal text-left text-xs tracking-normal leading-4">{props.inventor}</p>
-                                </td>
+                                </td> */}
                                 <td className="pl-4 whitespace-no-wrap w-32">
                                     <p className="text-gray-800 dark:text-gray-100 font-normal text-left text-xs tracking-normal leading-4">{props.application.slice(0,10)}</p>
                                 </td>
@@ -156,14 +156,14 @@ return(
                                     <div class="">
                                             {/* Code block for white button ends */}
                 {/* Code block for button with icon starts */}
-                <a href={"https://www.effepro.com/patentpdf/" + props.patentno + ".pdf"}  target="_blank" rel="noreferrer"  className="mx-2 my-2 flex items-center bg-white rounded border border-gray-300 text-gray-600 pl-3 pr-6 py-2 text-sm">
+                <a href={ props.fullclaims }  target="_blank" rel="noreferrer"  className="mx-2 my-2 flex items-center bg-white rounded border border-gray-300 text-gray-600 pl-3 pr-6 py-2 text-sm">
                     <span className="h-4 w-4 mr-2">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
   <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
 </svg>
                     </span>
                    
-                    Pdf
+                    URL
                     
                 </a>
                 {/* Code block for button with icon ends */}
@@ -234,9 +234,9 @@ return(
                                                 </li>
                                             </ul>
                                             <div className="w-full bg-white dark:bg-gray-800 border-l border-gray-300 dark:border-gray-200">
-                                                <h4 className="pl-10 w-full text-sm text-gray-800 dark:text-gray-100 py-3 bg-gray-100">{props.patentno}</h4>
+                                                <h4 className="pl-10 w-full text-sm text-gray-800 dark:text-gray-100 py-3 bg-gray-100">Non Patent Record</h4>
                                                 <div className="bg-white dark:bg-gray-800 px-8 py-6">
-                                                    <div className="flex items-start">
+                                                    {/* <div className="flex items-start">
                                                         <div className="w-1/3">
                                                             <p className="text-gray-600 dark:text-gray-400 font-normal text-xs">Legal Status</p>
                                                             <h5 className="text-gray-800 dark:text-gray-100 font-normal text-xs">{props.legal}</h5>
@@ -251,8 +251,8 @@ return(
                                                        {props.extended}
                                                             </h5>
                                                         </div>
-                                                    </div>
-                                                    <div className="flex items-start mt-6">
+                                                    </div> */}
+                                                    {/* <div className="flex items-start mt-6">
                                                         <div className="w-1/3">
                                                             <p className="text-gray-600 dark:text-gray-400 font-normal text-xs">ICR Classification</p>
                                                             <h5 className="text-gray-800 dark:text-gray-100 font-normal text-xs">
@@ -267,8 +267,8 @@ return(
                                                             <p className="text-gray-600 dark:text-gray-400 font-normal text-xs">US Classification</p>
                                                             <h5 className="text-indigo-700 font-normal text-xs">{props.usclass}</h5>
                                                         </div>
-                                                    </div>
-                                                    <hr className="my-6 border-t border-gray-300 dark:border-gray-200 w-full" />
+                                                    </div> */}
+                                                    {/* <hr className="my-6 border-t border-gray-300 dark:border-gray-200 w-full" /> */}
                                                     <h5 className="text-indigo-700 dark:text-gray-400 text-xs mb-2 font-bold">Abstract</h5>
                                                     <p className="text-gray-800 dark:text-gray-100 font-normal text-xs w-3/5 leading-6">{props.abstract}</p>
                                                     <h5 className="text-indigo-700 text-xs mb-2 mt-12 font-bold">Full Claims</h5>
@@ -431,4 +431,4 @@ return(
 );
 }
 
-export default SingleRecord;
+export default SingleRecordNPA;

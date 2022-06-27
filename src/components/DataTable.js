@@ -4,18 +4,66 @@ import axios from "axios";
 import LoadingSpinner from "./LoadingSpinner";
 
 
+
 // const baseURL = "http://localhost:4500/products";
 // const baseURL = "https://effiepro.herokuapp.com/";
 
 
 const DataTable = props => {
-    const [post, setPost] = React.useState([]);
+    //console.log(props);
+
+    //alert(props.pataxonomyFilter);
+
+    const [isLoading, setIsLoading] = useState(false);
+
+    const [post, setPost] = React.useState(props.patentDataset);
+    const [counterTitle, setCounterTitle] = React.useState(195);
+
+    React.useEffect(() => {
+    if(props.pataxonomyFilter !== 0)
+    {
+        setIsLoading(true);
+        axios.get("https://effiepro.herokuapp.com/pa/" + props.pataxonomyFilter).then((response) => {
+                  //console.log('hi')
+                  //console.log(response.data);
+                  
+
+                  setPost(response.data);
+                  setIsLoading(false);
+                  
+                });
+    }
+
+  }, [props.pataxonomyFilter]);
+
+
+    //alert(props.application);
+
+    // if (props.patentDataset === 0) {
+    //     setIsLoading(true);
+    //     axios.get("https://effiepro.herokuapp.com/").then((response) => {
+    //               console.log('hi')
+    //               console.log(response.data);
+                  
+
+    //               setPost(response.data);
+    //               setIsLoading(false);
+                  
+    //             });
+    // }
+    
+        
+    
+
+
+    
 
     const searchKeyword = () => {
         const thisKeyword = (document.getElementById("searchbox").value).toLowerCase();
         // thisKeyword = thisKeyword.toLowerCase();
         setIsLoading(true);
         let newArray = [];
+        // let count = 0;
         //alert(thisKeyword)
         //alert(typeof(post))
         const tempArray = post.map((thispost,i) => {
@@ -52,6 +100,7 @@ const DataTable = props => {
             
             if(needleFind === 1)
             {
+               
               newArray.push(thispost)
             }
          
@@ -62,40 +111,40 @@ const DataTable = props => {
         console.log(tempArray);
         setPost(newArray);
         setIsLoading(false);
+        //alert(typeof(newArray.length));
+        //setCounter(newArray.length)
        
     }
 
     const resetHandler = () =>
     {
-        setIsLoading(true);
-        document.getElementById("searchbox").value = "";
-            axios.get("https://effiepro.herokuapp.com/").then((response) => {
-              console.log('hi')
-              console.log(response.data);
-              setPost(response.data);
-              setIsLoading(false);
+        //setIsLoading(true);
+        // document.getElementById("searchbox").value = "";
+        //     axios.get("https://effiepro.herokuapp.com/").then((response) => {
+        //       console.log('hi')
+        //       console.log(response.data);
+        //       setPost(response.data);
+        //       setIsLoading(false);
               
-            });
+        //     });
         
-        
+        setPost(props.patentDataset);
+        setCounterTitle(195)
         
         
         
     }
 
-React.useEffect(() => {
-    axios.get(props.baseURL).then((response) => {
-      console.log('hi')
-      console.log(response.data);
-      setPost(response.data);
-      setIsLoading(false);
+// React.useEffect(() => {
+//     axios.get(props.baseURL).then((response) => {
+//       console.log('hi')
+//       console.log(response.data);
+//       setPost(response.data);
+//       setIsLoading(false);
       
-    });
+//     });
 
-
-
-
-  }, [props.baseURL]);
+//   }, [props.baseURL]);
 
 // if (!post) return null;
 
@@ -103,8 +152,8 @@ React.useEffect(() => {
 
 let rowCounter = 1;
 
-    const [dropdownStatus, setDropdownStatus] = useState(0);
-    const [isLoading, setIsLoading] = useState(true);
+    // const [dropdownStatus, setDropdownStatus] = useState(0);
+    
     return (
         <div className="">
 
@@ -116,7 +165,7 @@ let rowCounter = 1;
                 <div className="flex flex-col md:flex-row p-3 justify-between items-start md:items-stretch w-full">
                     <div className="w-full md:w-1/2 flex flex-col md:flex-row items-start md:items-center">
 
-                    <div className="flex items-center">
+                    {/* <div className="flex items-center">
                             <div className="p-2 border-gray-200 text-gray-600 dark:text-gray-400 border rounded focus:outline-none focus:border-gray-800 focus:shadow-outline-gray">
                                 <svg xmlns="http://www.w3.org/2000/svg" className="icon cursor-pointer icon-tabler icon-tabler-trash" width={20} height={20} viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">
                                     <path stroke="none" d="M0 0h24v24H0z" />
@@ -135,11 +184,11 @@ let rowCounter = 1;
                                     <line x1={12} y1={4} x2={12} y2={16} />
                                 </svg>
                             </button>
-                        </div>
+                        </div> */}
 
                     <div className="container flex pr-24  items-center justify-end">
                     <label htmlFor="selectedPage1" className="hidden" />
-                <input id="selectedPage1" type="text" className="bg-white dark:bg-gray-800 w-12 px-2 mx-2 text-gray-800 dark:text-gray-100 focus:outline-none focus:border focus:border-indigo-700 font-normal flex items-center text-xs border-gray-300 dark:border-gray-200 rounded border" defaultValue={195} />
+                <input id="selectedPage1" type="text" className="bg-white dark:bg-gray-800 w-12 px-2 mx-2 text-gray-800 dark:text-gray-100 focus:outline-none focus:border focus:border-indigo-700 font-normal flex items-center text-xs border-gray-300 dark:border-gray-200 rounded border" defaultValue={counterTitle} />
                 <p className="-mt-1 text-gray-800 dark:text-gray-100 mr-6 fot-normal text-xs">Total Records</p>
 
 
@@ -160,7 +209,7 @@ let rowCounter = 1;
                     </svg>
                 </button>
                 <label htmlFor="selectedPage1" className="hidden" />
-                <input id="selectedPage1" type="text" className="bg-white dark:bg-gray-800 w-12 px-2 mx-2 text-gray-800 dark:text-gray-100 focus:outline-none focus:border focus:border-indigo-700 font-normal flex items-center text-xs border-gray-300 dark:border-gray-200 rounded border" defaultValue={195} />
+                <input id="selectedPage1" type="text" className="bg-white dark:bg-gray-800 w-12 px-2 mx-2 text-gray-800 dark:text-gray-100 focus:outline-none focus:border focus:border-indigo-700 font-normal flex items-center text-xs border-gray-300 dark:border-gray-200 rounded border" defaultValue={counterTitle} />
                 <p className="-mt-1 text-gray-800 dark:text-gray-100 fot-normal text-xs">per page</p>
             </div>
 
@@ -243,9 +292,7 @@ let rowCounter = 1;
                                 </th>
                                 <th
                                     className="whitespace-no-wrap w-32 first-dropdown cursor-pointer"
-                                    onClick={() => {
-                                        dropdownStatus === 0 ? setDropdownStatus(8) : setDropdownStatus(0);
-                                    }}
+                                    
                                 >
                                     <div className="flex items-center justify-between relative chuss-div">
                                         <p className="text-gray-800 dark:text-gray-100 font-normal text-left text-xs tracking-normal leading-4">S.No.</p>
@@ -255,20 +302,11 @@ let rowCounter = 1;
                                                 <polyline points="6 9 12 15 18 9" />
                                             </svg>
                                         </div>
-                                        {dropdownStatus === 8 && (
-                                            <ul className="bg-white dark:bg-gray-800 shadow rounded mt-2 py-1 w-48 absolute top-0 right-0 mt-8 dropdown-content">
-                                                <li className="cursor-pointer text-gray-600 dark:text-gray-400 text-sm leading-3 tracking-normal py-3 hover:bg-indigo-700 hover:text-white px-3 font-normal">Option 1</li>
-                                                <li className="cursor-pointer text-gray-600 dark:text-gray-400 text-sm leading-3 tracking-normal py-3 hover:bg-indigo-700 hover:text-white px-3 font-normal">Option 2</li>
-                                                <li className="cursor-pointer text-gray-600 dark:text-gray-400 text-sm leading-3 tracking-normal py-3 hover:bg-indigo-700 hover:text-white px-3 font-normal">Option 3</li>
-                                                <li className="cursor-pointer text-gray-600 dark:text-gray-400 text-sm leading-3 tracking-normal py-3 hover:bg-indigo-700 hover:text-white px-3 font-normal">Option 4</li>
-                                            </ul>
-                                        )}
+                                       
                                     </div>
                                 </th>
                                 <th
-                                    onClick={() => {
-                                        dropdownStatus === 0 ? setDropdownStatus(9) : setDropdownStatus(0);
-                                    }}
+                                    
                                     className="border-l border-gray-300 dark:border-gray-200 pl-4 whitespace-no-wrap w-32 first-dropdown cursor-pointer"
                                     onclick="dropdownFunction(this)"
                                 >
@@ -280,20 +318,11 @@ let rowCounter = 1;
                                                 <polyline points="6 9 12 15 18 9" />
                                             </svg>
                                         </div>
-                                        {dropdownStatus === 9 && (
-                                            <ul className="bg-white dark:bg-gray-800 shadow rounded mt-2 py-1 w-48 absolute top-0 right-0 mt-8 dropdown-content">
-                                                <li className="cursor-pointer text-gray-600 dark:text-gray-400 text-sm leading-3 tracking-normal py-3 hover:bg-indigo-700 hover:text-white px-3 font-normal">Option 1</li>
-                                                <li className="cursor-pointer text-gray-600 dark:text-gray-400 text-sm leading-3 tracking-normal py-3 hover:bg-indigo-700 hover:text-white px-3 font-normal">Option 2</li>
-                                                <li className="cursor-pointer text-gray-600 dark:text-gray-400 text-sm leading-3 tracking-normal py-3 hover:bg-indigo-700 hover:text-white px-3 font-normal">Option 3</li>
-                                                <li className="cursor-pointer text-gray-600 dark:text-gray-400 text-sm leading-3 tracking-normal py-3 hover:bg-indigo-700 hover:text-white px-3 font-normal">Option 4</li>
-                                            </ul>
-                                        )}
+                                       
                                     </div>
                                 </th>
                                 <th
-                                    onClick={() => {
-                                        dropdownStatus === 0 ? setDropdownStatus(10) : setDropdownStatus(0);
-                                    }}
+                                   
                                     className="border-l border-gray-300 dark:border-gray-200 pl-4 whitespace-no-wrap w-32 first-dropdown cursor-pointer"
                                     onclick="dropdownFunction(this)"
                                 >
@@ -305,21 +334,29 @@ let rowCounter = 1;
                                                 <polyline points="6 9 12 15 18 9" />
                                             </svg>
                                         </div>
-                                        {dropdownStatus === 10 && (
-                                            <ul className="bg-white dark:bg-gray-800 shadow rounded mt-2 py-1 w-48 absolute top-0 right-0 mt-8 dropdown-content">
-                                                <li className="cursor-pointer text-gray-600 dark:text-gray-400 text-sm leading-3 tracking-normal py-3 hover:bg-indigo-700 hover:text-white px-3 font-normal">Option 1</li>
-                                                <li className="cursor-pointer text-gray-600 dark:text-gray-400 text-sm leading-3 tracking-normal py-3 hover:bg-indigo-700 hover:text-white px-3 font-normal">Option 2</li>
-                                                <li className="cursor-pointer text-gray-600 dark:text-gray-400 text-sm leading-3 tracking-normal py-3 hover:bg-indigo-700 hover:text-white px-3 font-normal">Option 3</li>
-                                                <li className="cursor-pointer text-gray-600 dark:text-gray-400 text-sm leading-3 tracking-normal py-3 hover:bg-indigo-700 hover:text-white px-3 font-normal">Option 4</li>
-                                            </ul>
-                                        )}
+                                        
                                     </div>
                                 </th>
                                
                                 <th
-                                    onClick={() => {
-                                        dropdownStatus === 0 ? setDropdownStatus(12) : setDropdownStatus(0);
-                                    }}
+                                    
+                                    className="border-l border-gray-300 dark:border-gray-200 pl-4 whitespace-no-wrap w-32 first-dropdown cursor-pointer"
+                                    onclick="dropdownFunction(this)"
+                                >
+                                    <div className="flex items-center justify-between relative">
+                                        <p className="text-gray-800 dark:text-gray-100 font-normal text-left text-xs tracking-normal leading-4">Legal Status</p>
+                                        <div className="cursor-pointer mr-3 text-gray-800 dark:text-gray-100">
+                                            <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-chevron-down" width={16} height={16} viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">
+                                                <path stroke="none" d="M0 0h24v24H0z" />
+                                                <polyline points="6 9 12 15 18 9" />
+                                            </svg>
+                                        </div>
+                                        
+                                    </div>
+                                </th>
+
+                                <th
+                                    
                                     className="border-l border-gray-300 dark:border-gray-200 pl-4 whitespace-no-wrap w-32 first-dropdown cursor-pointer"
                                     onclick="dropdownFunction(this)"
                                 >
@@ -331,62 +368,53 @@ let rowCounter = 1;
                                                 <polyline points="6 9 12 15 18 9" />
                                             </svg>
                                         </div>
-                                        {dropdownStatus === 12 && (
-                                            <ul className="bg-white dark:bg-gray-800 shadow rounded mt-2 py-1 w-48 absolute top-0 right-0 mt-8 dropdown-content">
-                                                <li className="cursor-pointer text-gray-600 dark:text-gray-400 text-sm leading-3 tracking-normal py-3 hover:bg-indigo-700 hover:text-white px-3 font-normal">Option 1</li>
-                                                <li className="cursor-pointer text-gray-600 dark:text-gray-400 text-sm leading-3 tracking-normal py-3 hover:bg-indigo-700 hover:text-white px-3 font-normal">Option 2</li>
-                                                <li className="cursor-pointer text-gray-600 dark:text-gray-400 text-sm leading-3 tracking-normal py-3 hover:bg-indigo-700 hover:text-white px-3 font-normal">Option 3</li>
-                                                <li className="cursor-pointer text-gray-600 dark:text-gray-400 text-sm leading-3 tracking-normal py-3 hover:bg-indigo-700 hover:text-white px-3 font-normal">Option 4</li>
-                                            </ul>
-                                        )}
+                                        
                                     </div>
                                 </th>
                                 <th
-                                    onClick={() => {
-                                        dropdownStatus === 0 ? setDropdownStatus(13) : setDropdownStatus(0);
-                                    }}
+                                    
                                     className="border-l border-gray-300 dark:border-gray-200 pl-4 whitespace-no-wrap w-32 first-dropdown cursor-pointer"
                                     onclick="dropdownFunction(this)"
                                 >
-                                    <div className="flex items-center justify-between relative ">
-                                        <p className="text-gray-800 dark:text-gray-100 font-normal text-left text-xs tracking-normal leading-4">Uploaded On</p>
-                                        <svg xmlns="http://www.w3.org/2000/svg" className="cursor-pointer mr-3 text-gray-800 dark:text-gray-100 icon icon-tabler icon-tabler-chevron-down" width={16} height={16} viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">
-                                            <path stroke="none" d="M0 0h24v24H0z" />
-                                            <polyline points="6 9 12 15 18 9" />
-                                        </svg>
-                                        {dropdownStatus === 13 && (
-                                            <ul className="bg-white dark:bg-gray-800 shadow rounded mt-2 py-1 w-48 absolute top-0 right-0 mt-8 dropdown-content">
-                                                <li className="cursor-pointer text-gray-600 dark:text-gray-400 text-sm leading-3 tracking-normal py-3 hover:bg-indigo-700 hover:text-white px-3 font-normal">Option 1</li>
-                                                <li className="cursor-pointer text-gray-600 dark:text-gray-400 text-sm leading-3 tracking-normal py-3 hover:bg-indigo-700 hover:text-white px-3 font-normal">Option 2</li>
-                                                <li className="cursor-pointer text-gray-600 dark:text-gray-400 text-sm leading-3 tracking-normal py-3 hover:bg-indigo-700 hover:text-white px-3 font-normal">Option 3</li>
-                                                <li className="cursor-pointer text-gray-600 dark:text-gray-400 text-sm leading-3 tracking-normal py-3 hover:bg-indigo-700 hover:text-white px-3 font-normal">Option 4</li>
-                                            </ul>
-                                        )}
-                                    </div>
-                                </th>
-                                <th
-                                    onClick={() => {
-                                        dropdownStatus === 0 ? setDropdownStatus(14) : setDropdownStatus(0);
-                                    }}
-                                    className="border-l border-gray-300 dark:border-gray-200 pl-4 whitespace-no-wrap w-32 first-dropdown cursor-pointer"
-                                    onclick="dropdownFunction(this)"
-                                >
-                                    <div className="flex items-center justify-between relative ">
-                                        <p className="text-gray-800 dark:text-gray-100 font-normal text-left text-xs tracking-normal leading-4">Published on</p>
+                                    <div className="flex items-center justify-between relative">
+                                        <p className="text-gray-800 dark:text-gray-100 font-normal text-left text-xs tracking-normal leading-4">Inventor</p>
                                         <div className="cursor-pointer mr-3 text-gray-800 dark:text-gray-100">
                                             <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-chevron-down" width={16} height={16} viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">
                                                 <path stroke="none" d="M0 0h24v24H0z" />
                                                 <polyline points="6 9 12 15 18 9" />
                                             </svg>
                                         </div>
-                                        {dropdownStatus === 14 && (
-                                            <ul className="bg-white dark:bg-gray-800 shadow rounded mt-2 py-1 w-48 absolute top-0 right-0 mt-8 dropdown-content">
-                                                <li className="cursor-pointer text-gray-600 dark:text-gray-400 text-sm leading-3 tracking-normal py-3 hover:bg-indigo-700 hover:text-white px-3 font-normal">Option 1</li>
-                                                <li className="cursor-pointer text-gray-600 dark:text-gray-400 text-sm leading-3 tracking-normal py-3 hover:bg-indigo-700 hover:text-white px-3 font-normal">Option 2</li>
-                                                <li className="cursor-pointer text-gray-600 dark:text-gray-400 text-sm leading-3 tracking-normal py-3 hover:bg-indigo-700 hover:text-white px-3 font-normal">Option 3</li>
-                                                <li className="cursor-pointer text-gray-600 dark:text-gray-400 text-sm leading-3 tracking-normal py-3 hover:bg-indigo-700 hover:text-white px-3 font-normal">Option 4</li>
-                                            </ul>
-                                        )}
+                                        
+                                    </div>
+                                </th>
+                                <th
+                                    
+                                    className="border-l border-gray-300 dark:border-gray-200 pl-4 whitespace-no-wrap w-32 first-dropdown cursor-pointer"
+                                    onclick="dropdownFunction(this)"
+                                >
+                                    <div className="flex items-center justify-between relative ">
+                                        <p className="text-gray-800 dark:text-gray-100 font-normal text-left text-xs tracking-normal leading-4">Application Date</p>
+                                        <svg xmlns="http://www.w3.org/2000/svg" className="cursor-pointer mr-3 text-gray-800 dark:text-gray-100 icon icon-tabler icon-tabler-chevron-down" width={16} height={16} viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">
+                                            <path stroke="none" d="M0 0h24v24H0z" />
+                                            <polyline points="6 9 12 15 18 9" />
+                                        </svg>
+                                       
+                                    </div>
+                                </th>
+                                <th
+                                    
+                                    className="border-l border-gray-300 dark:border-gray-200 pl-4 whitespace-no-wrap w-32 first-dropdown cursor-pointer"
+                                    onclick="dropdownFunction(this)"
+                                >
+                                    <div className="flex items-center justify-between relative ">
+                                        <p className="text-gray-800 dark:text-gray-100 font-normal text-left text-xs tracking-normal leading-4">Published Date</p>
+                                        <div className="cursor-pointer mr-3 text-gray-800 dark:text-gray-100">
+                                            <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-chevron-down" width={16} height={16} viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">
+                                                <path stroke="none" d="M0 0h24v24H0z" />
+                                                <polyline points="6 9 12 15 18 9" />
+                                            </svg>
+                                        </div>
+                                       
                                     </div>
                                 </th>
                                 <th className="border-l border-gray-300 dark:border-gray-200 pl-4 pr-12 whitespace-no-wrap w-32">
@@ -398,12 +426,15 @@ let rowCounter = 1;
 
                         {isLoading ? <LoadingSpinner /> : console.log('tets')}
                             
-                            {post.map((thispost, i) => 
+                            {
+                                
+                            
+                            post.map((thispost, i) => 
                             <SingleRecord patentno={thispost['Publication Number']} 
                             title = {thispost['Title']} 
                             assignee = {thispost['Current Owner']} 
                             publication = {thispost['Publication/Issue Date']}
-                            application = {thispost['Filing/Application Date']}
+                            application = {thispost['Filling/Application Date'] }
                             legal = {thispost['Legal Status']}
                             inventor = {thispost['Inventors']}
                             extended = {thispost['Extended Family Members']}
@@ -413,6 +444,8 @@ let rowCounter = 1;
                             abstract = {thispost['Abstract']}
                             fullclaims = {thispost['Full Claims']}
                             counter = {rowCounter++}
+
+                       
                             
                             />
                             )}
@@ -432,10 +465,6 @@ let rowCounter = 1;
                         
                               )} */}
 
-                            
-                           
-                           
-                            
                         </tbody>
                     </table>
                 </div>

@@ -1,8 +1,10 @@
 import React, { useEffect, useRef } from 'react';
 import { Network } from 'vis-network';
+import { useNavigate } from "react-router-dom";
 
-const VisNetworkNPA = () => {
+const VisNetworkNPA = props => {
 	const container = useRef(null);
+  const navigate = useNavigate();
 
   
   useEffect(() => {
@@ -52,9 +54,21 @@ const VisNetworkNPA = () => {
       container.current &&
       new Network(container.current, { nodes, edges }, options);
       network.on( 'click', function(properties) {
-        alert('clicked node ' + properties.nodes);
+        // alert('clicked node ' + properties.nodes);
+        //alert(typeof(properties.nodes[0]))
+        //console.log(properties.nodes[0])
+        let obj = nodes.find(o => o.id === properties.nodes[0]);
+        //console.log(obj.label)
+        let urlBase = "https://effiepro.herokuapp.com/npa/" + obj.label;
+        //alert('clicked node ' + obj.label);
+       // props.addnewState(urlBase);
+        let templabel = obj.label;
+        //let indexbrac = templabel.indexOf("(");
+        //templabel = templabel.slice(0,indexbrac);
+        props.stateHandlerNPA(0);
+        navigate("/NPAdataset");
     });
-  },[]);
+  },[navigate,props]);
 
   return <div ref={container} style={{ height: '100vh', width: '100%' }} />;
 };

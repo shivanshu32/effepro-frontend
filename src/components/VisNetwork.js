@@ -6,22 +6,29 @@ const VisNetwork = props => {
 	const container = useRef(null);
   const navigate = useNavigate();
 
+  //alert(props.stateHandlerPA);
+
   
 
                       
   useEffect(() => {
 
     const nodes = [
-      { id: 1, label: 'Protein Sweetener', shape: 'diamond', color: '#F03967' },
-      { id: 2, label: 'Sweetness Index', shape: 'box', color: '#BACDE1'  },
-      { id: 3, label: 'Type of Drink', shape: 'box', color: '#BACDE1'  },
-      { id: 4, label: 'Composition Details',shape: 'box', color: '#BACDE1'  },
-      { id: 5, label: 'Storage Conditions', shape: 'box', color: '#BACDE1'  },
-      { id: 6, label: 'Production Process', shape: 'box', color: '#BACDE1'  },
-      { id: 7, label: 'Benefits', shape: 'box', color: '#BACDE1'  }
+      { id: 1, label: 'Literature Focus', shape: 'diamond', color: '#F03967' },
+      { id: 2, label: 'Modification/ Modified Protein Sweeter', shape: 'box', color: '#BACDE1'  },
+      { id: 3, label: 'Properties/ Advantages', shape: 'box', color: '#BACDE1'  },
+      { id: 4, label: 'Bio Product Host',shape: 'box', color: '#BACDE1'  },
+      { id: 5, label: 'Natural Source', shape: 'box', color: '#BACDE1'  },
+      { id: 6, label: 'Extraction Method', shape: 'box', color: '#BACDE1'  },
+      { id: 7, label: 'Sequence Details (If Claimed)', shape: 'box', color: '#BACDE1'  },
+      { id: 8, label: 'Sweetness Index', shape: 'box', color: '#BACDE1'  },
+      { id: 9, label: 'Type of Drink', shape: 'box', color: '#BACDE1'  },
+      { id: 10, label: 'Composition Details', shape: 'box', color: '#BACDE1'  },
+      { id: 11, label: 'Storage Conditions', shape: 'box', color: '#BACDE1'  },
+      { id: 12, label: 'Production Process', shape: 'box', color: '#BACDE1'  },
+      { id: 13, label: 'Benefits', shape: 'box', color: '#BACDE1'  }
     ];
-    
-    
+  
     const edges = [
       { from: 1, to: 2 },
       { from: 1, to: 3 },
@@ -29,9 +36,14 @@ const VisNetwork = props => {
       { from: 1, to: 5 },
       { from: 1, to: 6 },
       { from: 1, to: 7 },
-    
+      { from: 1, to: 8 },
+      { from: 1, to: 9 },
+      { from: 1, to: 10 },
+      { from: 1, to: 11 },
+      { from: 1, to: 12 },
+      { from: 1, to: 13 }
     ];
-  
+
     const options = {
       // position: {x:x, y:x},    // position to animate to (Numbers)
       scale: 2.0,              // scale to animate to  (Number)
@@ -53,6 +65,10 @@ const VisNetwork = props => {
         let urlBase = "https://effiepro.herokuapp.com/pa/" + obj.label;
         //alert('clicked node ' + obj.label);
         props.addnewState(urlBase);
+        let templabel = obj.label;
+        //let indexbrac = templabel.indexOf("(");
+        //templabel = templabel.slice(0,indexbrac);
+        props.stateHandlerPA(templabel.trim());
         navigate("/dataset");
     });
   }, [navigate,props]);

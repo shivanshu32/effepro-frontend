@@ -1,7 +1,29 @@
 import React, { useState } from "react";
 import {Link} from 'react-router-dom';
 export default function Navbar() {
+    
+
+const openDataset = () => {
+    var link = document.getElementById('taxshow');
+    link.style.display = 'none'; 
+    var link = document.getElementById('datashow');
+    link.style.display = 'block'; 
+}
+
+const openTaxonomy = () => {
+
+    
+    var link = document.getElementById('datashow');
+    link.style.display = 'none'; 
+    var link = document.getElementById('taxshow');
+    link.style.display = 'block'; 
+}
+
     const [sideBar, setsideBar] = useState();
+    // var link = document.getElementById('taxshow');
+    // link.style.display = 'none'; 
+    // var link = document.getElementById('datashow');
+    // link.style.display = 'none'; 
     return (
         <>
             <div className="h-full w-full">
@@ -31,17 +53,17 @@ export default function Navbar() {
                                   
                                 </li>
                                 <li className="px-6">
-                                    <Link to="/Dataset">
+                                    <button onClick={openDataset}>
 Dataset
-                                    </Link>
+                                    </button>
                                     
                                 </li>
                                
                                 <li>
-                                <Link to='/taxonomy'>
+                                <button onClick={openTaxonomy}>
                                        Taxonomy
                                     
-                                </Link>
+                                </button>
                                 </li>
                                
                             </ul>
@@ -84,12 +106,32 @@ Dataset
                         </div>
                        
                     </div>
-                    <div className="container justify-between h-12 flex items-center bg-white md:items-stretch mx-auto">
-                        <div className="h-full w-full flex items-center">
-                            <ul className="pr-12 md:flex items-center h-full hidden">
+                    <div className="w-full container justify-between h-12 flex items-center bg-white md:items-stretch mx-auto">
+                        <div className="h-full flex w-full flex items-center">
+                            <ul id="datashow" className="hidden pr-12 py-4 items-center h-full">
+                                <li>i
+                                    <Link to="/dataset" >
+                                           Patent Dataset
+                                    </Link>
+                                </li>
+                                <li>
+                                    <svg className="mx-4" width={5} height={13} viewBox="0 0 5 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M4.67347 0.34082H3.59961L0.318359 12.5312H1.39222L4.67347 0.34082Z" fill="#E5E7EB" />
+                                    </svg>
+                                </li>
                                 <li>
                                     <Link to="/NPAdataset" >
-                                           Browse Non-Patent Dataset
+                                            Non-Patent Dataset
+                                    </Link>
+                                </li>
+                                
+                               
+                            </ul>
+
+                            <ul id="taxshow" className="pr-12 py-4 md:flex items-center h-full">
+                                <li>
+                                    <Link to="/taxonomy" >
+                                           Patent Taxonomy
                                     </Link>
                                 </li>
                                 <li>
@@ -99,21 +141,19 @@ Dataset
                                 </li>
                                 <li>
                                     <Link to="/NPAtaxonomy" >
-                                            Browse Non-Patent Taxonomy 
+                                            Non-Patent Taxonomy 
                                     </Link>
                                 </li>
-                                <li>
-                                    <svg className="mx-4" width={5} height={13} viewBox="0 0 5 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M4.67347 0.34082H3.59961L0.318359 12.5312H1.39222L4.67347 0.34082Z" fill="#E5E7EB" />
-                                    </svg>
-                                </li>
+                                
                                
                             </ul>
 
                             
 
+                            
+
                         </div>
-                        <div tabindex="0" aria-label="indigo background badge justify-right" class="mt-2 focus:outline-none bg-indigo-700 h-8 w-3/4 mb-4 md:mb-0 rounded-full flex items-center justify-center">
+                        <div tabindex="0" aria-label="indigo background badge justify-right" class="mt-8 focus:outline-none bg-indigo-700 h-8 w-1/2  mb-4 md:mb-0 rounded-full flex items-center justify-center">
                         <span class="text-sm text-white font-normal">Project Name - Alternative protein sweeteners for soda/beverage
 </span>
                     </div>

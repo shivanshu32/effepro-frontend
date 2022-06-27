@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import SingleRecord from "./SingleRecord";
+import SingleRecordNPA from "./SingleRecordNPA";
 import axios from "axios";
 import LoadingSpinner from "./LoadingSpinner";
 
@@ -8,21 +8,122 @@ import LoadingSpinner from "./LoadingSpinner";
 
 
 const DataTableNPA = props => {
-    const [post, setPost] = React.useState([]);
-React.useEffect(() => {
-    axios.get(props.baseURL).then((response) => {
-      console.log('hi')
-      console.log(typeof(response.data))
-      console.log(response.data);
-      setPost(response.data);
-      setIsLoading(false);
+    
+    const [post, setPost] = React.useState(props.nonpatentDataset);
+    const [isLoading, setIsLoading] = useState(false);
+
+    React.useEffect(() => {
+        if(props.npataxonomyFilter !== 0)
+        {
+            let thisURL = "https://effiepro.herokuapp.com/npa/" + props.npataxonomyFilter
+            //alert(thisURL)
+            setIsLoading(true);
+            axios.get(thisURL).then((response) => {
+                      //console.log('hi')
+                      //console.log(response.data);
+                      let thisresponse = response.data
+                      thisresponse = thisresponse.replace("NaN", '"NA"');
+                      thisresponse = thisresponse.replace("\\", '""');
+                      
+                      thisresponse = JSON.parse(thisresponse);
+                      
+                      //thisresponse = thisresponse.slice(1,thisresponse.length - 1)
+                      console.log("this response is")
+                      console.log(typeof(thisresponse))
+                      console.log(thisresponse)
+    
+                      setPost(thisresponse);
+                      setIsLoading(false);
+                      
+                    });
+        }
+    
+      }, [props.pataxonomyFilter]);
+
+
+    const searchKeyword = () => {
+        const thisKeyword = (document.getElementById("searchbox").value).toLowerCase();
+        // thisKeyword = thisKeyword.toLowerCase();
+        setIsLoading(true);
+        let newArray = [];
+        //alert(thisKeyword)
+        //alert(typeof(post))
+        const tempArray = post.map((thispost,i) => {
+            
+            const patentno=thispost['Abstract'];
+            const title = thispost['Title'];
+            const assignee = thispost['Relevant text'];
+            const publication = thispost['Literature Focus'];
+            const application = thispost['Affiliation'];
+            const legal = thispost['Author'];
+            const inventor = thispost['Publication year'];
+            // const extended = thispost['Extended Family Members'];
+            // const ipcclass = thispost['ICR'];
+            // const cpcclass = thispost['CPC'];
+            // const usclass = thispost['US Class (UC)'];
+            // const abstract = thispost['Abstract'];
+            // const fullclaims = thispost['Full Claims'];
+
+            let needleFind = 0;
+
+            if(patentno !== undefined && patentno.toLowerCase().includes(thisKeyword)) { needleFind = 1 }
+            if(title !== undefined && title.toLowerCase().includes(thisKeyword)) { needleFind = 1 }
+            if(assignee !== undefined && assignee.toLowerCase().includes(thisKeyword)) { needleFind = 1 }
+            if(publication !== undefined && publication.toLowerCase().includes(thisKeyword)) { needleFind = 1 }
+            if(application !== undefined && application.toLowerCase().includes(thisKeyword)) { needleFind = 1 }
+            if(legal !== undefined && legal.toLowerCase().includes(thisKeyword)) { needleFind = 1 }
+            if(inventor !== undefined && inventor === parseInt(thisKeyword) ) { needleFind = 1 }
+            
+            // if(extended !== undefined && extended.toLowerCase().includes(thisKeyword)) { needleFind = 1 }
+            // if(ipcclass !== undefined && ipcclass.toLowerCase().includes(thisKeyword)) { needleFind = 1 }
+            // if(cpcclass !== undefined && cpcclass.toLowerCase().includes(thisKeyword)) { needleFind = 1 }
+            // if(usclass !== undefined && usclass.toLowerCase().includes(thisKeyword)) { needleFind = 1 }
+            // if(abstract !== undefined && abstract.toLowerCase().includes(thisKeyword)) { needleFind = 1 }
+            // if(fullclaims !== undefined && fullclaims.toLowerCase().includes(thisKeyword)) { needleFind = 1 }
+            
+            if(needleFind === 1)
+            {
+              newArray.push(thispost)
+            }
+         
+            return newArray;
+
+           // alert(patentno);
+        })
+        console.log(tempArray);
+        setPost(newArray);
+        setIsLoading(false);
+       
+    }
+
+    const resetHandler = () =>
+    {
+        //setIsLoading(true);
+        // document.getElementById("searchbox").value = "";
+        //     axios.get("https://effiepro.herokuapp.com/").then((response) => {
+        //       console.log('hi')
+        //       console.log(response.data);
+        //       setPost(response.data);
+        //       setIsLoading(false);
+              
+        //     });
+        
+        setPost(props.nonpatentDataset);
+        
+        
+        
+    }
+
+// React.useEffect(() => {
+//     axios.get(props.baseURL).then((response) => {
+//       console.log('hi')
+//       console.log(typeof(response.data))
+//       console.log(response.data);
+//       setPost(response.data);
+//       setIsLoading(false);
       
-    });
-
-
-
-
-  }, [props.baseURL]);
+//     });
+//   }, [props.baseURL]);
 
 // if (!post) return null;
 
@@ -31,7 +132,7 @@ React.useEffect(() => {
 let rowCounter = 1;
 
     const [dropdownStatus, setDropdownStatus] = useState(0);
-    const [isLoading, setIsLoading] = useState(true);
+   
     return (
         <div className="">
             <div className="">
@@ -39,26 +140,7 @@ let rowCounter = 1;
                 <div className="flex flex-col md:flex-row p-3 justify-between items-start md:items-stretch w-full">
                     <div className="w-full md:w-1/2 flex flex-col md:flex-row items-start md:items-center">
 
-                    <div className="flex items-center">
-                            <div className="p-2 border-gray-200 text-gray-600 dark:text-gray-400 border rounded focus:outline-none focus:border-gray-800 focus:shadow-outline-gray">
-                                <svg xmlns="http://www.w3.org/2000/svg" className="icon cursor-pointer icon-tabler icon-tabler-trash" width={20} height={20} viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">
-                                    <path stroke="none" d="M0 0h24v24H0z" />
-                                    <line x1={4} y1={7} x2={20} y2={7} />
-                                    <line x1={10} y1={11} x2={10} y2={17} />
-                                    <line x1={14} y1={11} x2={14} y2={17} />
-                                    <path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12" />
-                                    <path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3" />
-                                </svg>
-                            </div>
-                            <button className="text-gray-600 dark:text-gray-400 p-2 ml-2 border-gray-200 border rounded focus:outline-none focus:border-gray-800 focus:shadow-outline-gray" onClick="#">
-                                <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-upload" width={20} height={20} viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">
-                                    <path stroke="none" d="M0 0h24v24H0z" />
-                                    <path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2 -2v-2" />
-                                    <polyline points="7 9 12 4 17 9" />
-                                    <line x1={12} y1={4} x2={12} y2={16} />
-                                </svg>
-                            </button>
-                        </div>
+                   
 
                     <div className="container flex pr-24  items-center justify-end">
                     <label htmlFor="selectedPage1" className="hidden" />
@@ -110,11 +192,36 @@ let rowCounter = 1;
                                     </svg>
                                 </div>
                                 <label htmlFor="search" className="hidden text-gray-800 dark:text-gray-100 text-sm font-bold leading-tight tracking-normal mb-2" />
-                                <input id="search" className="w-full bg-transparent dark:bg-gray-800 text-gray-600 dark:text-gray-400 focus:outline-none focus:border focus:border-indigo-700 font-normal pl-8 pr-24 h-10 flex items-center text-sm border-gray-300 dark:border-gray-200 rounded border" placeholder="Search here" />
+                                {/* <input id="search" className="w-full bg-transparent dark:bg-gray-800 text-gray-600 dark:text-gray-400 focus:outline-none focus:border focus:border-indigo-700 font-normal pl-8 pr-24 h-10 flex items-center text-sm border-gray-300 dark:border-gray-200 rounded border" placeholder="Search here" /> */}
+                                <div className="relative">
+                        <div className="absolute text-gray-600 dark:text-gray-400 flex items-center pl-3 border-r dark:border-gray-700 h-full pr-1">
+                            <select className="uppercase text-sm leading-tight tracking-normal focus:outline-none h-8 appearance-none pr-6 z-20 relative bg-transparent">
+                                <option value="usd">All</option>
+                                <option value="aus">Literature</option>
+                                <option value="pak">Title</option>
+                                <option value="pak">Abstract</option>
+                                <option value="pak">Claims</option>
+                                <option value="pak">Publication</option>
+                                <option value="pak">Author</option>
+                                <option value="pak">Affiliation</option>
+                                
+                            </select>
+                            <div className="mx-1 absolute right-0 z-10">
+                                <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-chevron-down" width={20} height={20} viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">
+                                    <path stroke="none" d="M0 0h24v24H0z" />
+                                    <polyline points="6 9 12 15 18 9" />
+                                </svg>
+                            </div>
+                        </div>
+                        <input id="searchbox" className="text-gray-600 dark:text-gray-400 focus:outline-none focus:border focus:border-indigo-700 dark:focus:border-indigo-700 dark:border-gray-700 dark:bg-gray-800 font-normal w-full h-10 flex items-center pl-48 text-sm border-gray-300 rounded border shadow" placeholder="Search Here" />
+                    </div>
                             </div>
                         </div>
                     
-
+                        <button onClick={searchKeyword} className="mx-2 my-2 bg-white transition duration-150 ease-in-out hover:border-indigo-600 hover:text-indigo-600 rounded border border-indigo-700 text-indigo-600 px-6 py-2 text-sm">Search</button>
+               
+               <button onClick={resetHandler} className="mx-2 my-2 bg-white transition duration-150 ease-in-out hover:border-red-600 hover:text-red-600 rounded border border-red-700 text-red-600 px-6 py-2 text-sm">Reset</button>
+      
                         
                         
                     </div>
@@ -292,7 +399,7 @@ let rowCounter = 1;
                         {isLoading ? <LoadingSpinner /> : console.log('tets')}
                             
                             {post.map((thispost, i) => 
-                            <SingleRecord patentno={thispost['Publication year']} 
+                            <SingleRecordNPA patentno={thispost['Publication year']} 
                             title = {thispost['Title']} 
                             assignee = {thispost['Literature Focus']} 
                             publication = {thispost['Affiliation']}
@@ -304,7 +411,7 @@ let rowCounter = 1;
                             cpcclass = {thispost['CPC']}
                             usclass = {thispost['US Class (UC)']}
                             abstract = {thispost['Abstract']}
-                            fullclaims = {thispost['Full Claims']}
+                            fullclaims = {thispost['URL/LINK']}
                             counter = {rowCounter++}
                             
                             />
