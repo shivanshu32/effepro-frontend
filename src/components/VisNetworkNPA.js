@@ -59,10 +59,10 @@ const VisNetworkNPA = props => {
         //console.log(properties.nodes[0])
         let obj = nodes.find(o => o.id === properties.nodes[0]);
         //console.log(obj.label)
-        let urlBase = "https://effiepro.herokuapp.com/npa/" + obj.label;
+        // let urlBase = "https://effiepro.herokuapp.com/npa/" + obj.label;
         //alert('clicked node ' + obj.label);
        // props.addnewState(urlBase);
-        let templabel = obj.label;
+        //let templabel = obj.label;
         //let indexbrac = templabel.indexOf("(");
         //templabel = templabel.slice(0,indexbrac);
         props.stateHandlerNPA(0);
