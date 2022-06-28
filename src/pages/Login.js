@@ -1,13 +1,12 @@
 import React,{useState} from "react";
-import { Link } from 'react-router-dom';
+
 import { useNavigate } from "react-router-dom";
 
 export default function Login() {
     const navigate = useNavigate();
 const [showpass, setShowPass] = useState(false)
 
-const [myemail, setmyemail] = useState(0)
-const [mypass, setmypass] = useState(0)
+
 
     const checkLogin = () => {
        

@@ -6,25 +6,13 @@ import { ChevronDownIcon } from '@heroicons/react/solid'
 export default function Navbar() {
     
 
-const openDataset = () => {
-    var thislink = document.getElementById('taxshow');
-    thislink.style.display = 'none'; 
-    thislink = document.getElementById('datashow');
-    thislink.style.display = 'block'; 
-}
+
 
 function classNames(...classes) {
     return classes.filter(Boolean).join(' ')
   }
 
-const openTaxonomy = () => {
 
-    
-    var thislink = document.getElementById('datashow');
-    thislink.style.display = 'none'; 
-    thislink = document.getElementById('taxshow');
-    thislink.style.display = 'block'; 
-}
 
     const [sideBar, setsideBar] = useState();
     // var link = document.getElementById('taxshow');
