@@ -1,8 +1,38 @@
 import React,{useState} from "react";
 import { Link } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 
 export default function Login() {
-    const [showpass, setShowPass] = useState(false)
+    const navigate = useNavigate();
+const [showpass, setShowPass] = useState(false)
+
+const [myemail, setmyemail] = useState(0)
+const [mypass, setmypass] = useState(0)
+
+    const checkLogin = () => {
+       
+        const myemail = document.getElementById('email').value;
+        const mypass = document.getElementById('myInput').value;
+        //console.log(myemail);
+
+        if(myemail.toLowerCase() === "demo@effepro.com" && mypass === 'Dev@2022')
+        {
+            navigate("/dashboard");
+        }
+        else
+        {
+            alert("Incorrect Credentials, Please Try Again");
+        }
+
+        console.log(mypass);
+        console.log(myemail);
+
+        //alert(myemail);
+       // alert(mypass);
+        
+      //  navigate("/dashboard");
+    }
+
     return (
         <>
             <div className="bg-indigo-50" style={{height: '100vh'}}>
@@ -28,11 +58,12 @@ export default function Login() {
                        
                        
                         <div>
-                            <label htmlFor="email" className="text-sm font-medium leading-none text-gray-800">
+                            <label className="text-sm font-medium leading-none text-gray-800">
                                 {" "}
                                 Email{" "}
                             </label>
-                            <input id="email" aria-labelledby="email" type="email" className="bg-gray-200 border rounded text-xs font-medium leading-none placeholder-gray-800 text-gray-800 py-3 w-full pl-3 mt-2" placeholder="e.g: demo@effepro.com " />
+                            <input id="email"  aria-labelledby="email" type="text" className="bg-gray-200 border rounded text-xs font-medium leading-none placeholder-gray-800 text-gray-800 py-3 w-full pl-3 mt-2" placeholder="e.g: demo@effepro.com " />
+                       {/* <input id="emailtest" /> */}
                         </div>
                         <div className="mt-6 w-full">
                             <label htmlFor="myInput" className="text-sm font-medium leading-none text-gray-800">
@@ -62,11 +93,11 @@ export default function Login() {
                             </div>
                         </div>
                         <div className="mt-8">
-                        <Link to="/dashboard">
-                            <button className="focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700 text-sm font-semibold leading-none text-white focus:outline-none bg-indigo-700 border rounded hover:bg-indigo-600 py-4 w-full">
+                       
+                            <button onClick={checkLogin} className="focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700 text-sm font-semibold leading-none text-white focus:outline-none bg-indigo-700 border rounded hover:bg-indigo-600 py-4 w-full">
                                 Login
                             </button>
-                            </Link>
+                         
                         </div>
                     </div>
                     <div className="xl:w-1/3 md:w-1/2 lg:ml-16 ml-8 mt-6">

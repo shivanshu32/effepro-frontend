@@ -1,5 +1,8 @@
 import React, { useState } from "react";
 import {Link} from 'react-router-dom';
+import { Fragment } from 'react'
+import { Menu, Transition } from '@headlessui/react'
+import { ChevronDownIcon } from '@heroicons/react/solid'
 export default function Navbar() {
     
 
@@ -9,6 +12,10 @@ const openDataset = () => {
     thislink = document.getElementById('datashow');
     thislink.style.display = 'block'; 
 }
+
+function classNames(...classes) {
+    return classes.filter(Boolean).join(' ')
+  }
 
 const openTaxonomy = () => {
 
@@ -27,9 +34,14 @@ const openTaxonomy = () => {
     return (
         <>
             <div className="h-full w-full">
+
+           
+
                 {/* Code block starts */}
                 <nav role="navigation" className="md:px-6 lg:px-4 w-full mx-auto hidden md:block bg-white shadow-md">
                     <div className="container  justify-between h-20 flex items-center bg-white md:items-stretch mx-auto border-b border-gray-200">
+                       
+                       
                         <div className="h-full flex items-center">
                             <button role="img" aria-label="logo" className="focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700 mr-10 flex items-center">
                                 <svg width={34} height={34} viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -39,7 +51,150 @@ const openTaxonomy = () => {
                                     />
                                 </svg>
                             </button>
-                            <ul className="pr-12 md:flex items-center h-full hidden">
+
+                           
+
+{/* dropdowntest starts */}
+<Menu as="div" className="relative inline-block text-left px-2">
+      <div>
+        <Menu.Button className="inline-flex justify-center w-full rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500">
+        <Link
+              to="/dashboard"> Dashboard</Link>
+         
+          {/* <ChevronDownIcon className="-mr-1 ml-2 h-5 w-5" aria-hidden="true" /> */}
+        </Menu.Button>
+      </div>
+
+     
+    </Menu>
+
+{/* dropdown test ends */}
+
+{/* dropdowntest starts */}
+<Menu as="div" className="relative inline-block text-left px-2">
+      <div>
+        <Menu.Button className="inline-flex justify-center w-full rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500">
+          Dataset
+          <ChevronDownIcon className="-mr-1 ml-2 h-5 w-5" aria-hidden="true" />
+        </Menu.Button>
+      </div>
+
+      <Transition
+        as={Fragment}
+        enter="transition ease-out duration-100"
+        enterFrom="transform opacity-0 scale-95"
+        enterTo="transform opacity-100 scale-100"
+        leave="transition ease-in duration-75"
+        leaveFrom="transform opacity-100 scale-100"
+        leaveTo="transform opacity-0 scale-95"
+      >
+        <Menu.Items className="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 divide-y divide-gray-100 focus:outline-none">
+          <div className="py-1">
+            <Menu.Item>
+              {({ active }) => (
+                <div
+                 
+                  className={classNames(
+                    active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
+                    'block px-4 py-2 text-sm'
+                  )}
+                >
+                   <Link to="/dataset" >
+                  Patent Dataset
+                  </Link>
+                </div>
+              )}
+            </Menu.Item>
+            <Menu.Item>
+              {({ active }) => (
+                <div
+                 
+                  className={classNames(
+                    active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
+                    'block px-4 py-2 text-sm'
+                  )}
+                >
+                    <Link to="/NPAdataset" >
+                  Non-Patent Dataset
+                  </Link>
+                </div>
+              )}
+            </Menu.Item>
+          </div>
+          
+         
+         
+        </Menu.Items>
+      </Transition>
+    </Menu>
+
+{/* dropdown test ends */}
+
+
+{/* dropdowntest starts */}
+<Menu as="div" className="relative inline-block px-2 text-left">
+      <div>
+        <Menu.Button className="inline-flex justify-center w-full rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500">
+         Taxonomy
+          <ChevronDownIcon className="-mr-1 ml-2 h-5 w-5" aria-hidden="true" />
+        </Menu.Button>
+      </div>
+
+      <Transition
+        as={Fragment}
+        enter="transition ease-out duration-100"
+        enterFrom="transform opacity-0 scale-95"
+        enterTo="transform opacity-100 scale-100"
+        leave="transition ease-in duration-75"
+        leaveFrom="transform opacity-100 scale-100"
+        leaveTo="transform opacity-0 scale-95"
+      >
+        <Menu.Items className="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 divide-y divide-gray-100 focus:outline-none">
+          <div className="py-1">
+            <Menu.Item>
+              {({ active }) => (
+                <div
+                  
+                  className={classNames(
+                    active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
+                    'block px-4 py-2 text-sm'
+                  )}
+                >
+                      <Link to="/taxonomy" >
+                  Patent Taxonomy
+                  </Link>
+                </div>
+              )}
+            </Menu.Item>
+            <Menu.Item>
+              {({ active }) => (
+                <div
+                  href="#"
+                  className={classNames(
+                    active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
+                    'block px-4 py-2 text-sm'
+                  )}
+                >
+                    <Link to="/NPAtaxonomy" >
+                  Non-Patent Taxonomy
+                  </Link>
+                </div>
+              )}
+            </Menu.Item>
+          </div>
+          
+          
+        </Menu.Items>
+      </Transition>
+    </Menu>
+
+{/* dropdown test ends */}
+
+<span class="p-2 ml-16 text-sm text-white mt-2 focus:outline-none bg-indigo-700 h-8 w-1/2  mb-4 md:mb-0 rounded-full flex items-center justify-centerfont-normal">Alternative protein sweeteners for soda/beverage
+</span>
+
+
+                            {/* <ul className="pr-12 md:flex items-center h-full hidden">
                                 <li>
                                     
                               
@@ -61,12 +216,13 @@ Dataset
                                
                                 <li>
                                 <button onClick={openTaxonomy}>
+                
                                        Taxonomy
                                     
                                 </button>
                                 </li>
                                
-                            </ul>
+                            </ul> */}
                         </div>
                         <div className="md:flex items-center justify-end hidden">
                             <div className="flex items-center">
@@ -82,6 +238,7 @@ Dataset
                                         {/* <input className="hidden lg:block border border-gray-200 focus:outline-none focus:border-indigo-700 w-64 rounded text-sm text-gray-800 pl-8 py-2" type="text" placeholder="Search here" /> */}
                                    
                                    
+                                   
                                         <div class=" hidden sm:flex justify-end flex-row lg:pr-7 sm:pr-6 py-6 pr-4 pl-8">
                                 {/* <div class="cursor-pointer focus:outline-none focus:ring focus:ring-offset-2 focus:ring-gray-800 relative flex justify-center items-center xl:mr-8 mr-6">
                                     <img class="dark:bg-white rounded" src="https://tuk-cdn.s3.amazonaws.com/can-uploader/header-4-svg3.svg" alt="bell" />
@@ -91,6 +248,7 @@ Dataset
                                 <div class=" flex justify-center items-center flex-row">
                                     {/* <img class="w-10 h-10 " src="https://i.ibb.co/QMddNDb/Ellipse-14.png" alt="individual person" /> */}
                                     <div class="ml-2">
+                                        
                                         <p class="text-lg leading-4 font-semibold text-gray-800 dark:text-white ">Demo</p>
                                         <p class=" font-normal text-xs leading-3 text-gray-600 dark:text-gray-200  mt-1">demo@effepro.com</p>
                                     </div>
@@ -107,55 +265,10 @@ Dataset
                        
                     </div>
                     <div className="w-full container justify-between h-12 flex items-center bg-white md:items-stretch mx-auto">
-                        <div className="h-full flex w-full flex items-center">
-                            <ul id="datashow" className="hidden pr-12 py-4 items-center h-full">
-                                <li>i
-                                    <Link to="/dataset" >
-                                           Patent Dataset
-                                    </Link>
-                                </li>
-                                <li>
-                                    <svg className="mx-4" width={5} height={13} viewBox="0 0 5 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M4.67347 0.34082H3.59961L0.318359 12.5312H1.39222L4.67347 0.34082Z" fill="#E5E7EB" />
-                                    </svg>
-                                </li>
-                                <li>
-                                    <Link to="/NPAdataset" >
-                                            Non-Patent Dataset
-                                    </Link>
-                                </li>
-                                
-                               
-                            </ul>
-
-                            <ul id="taxshow" className="pr-12 py-4 md:flex items-center h-full">
-                                <li>
-                                    <Link to="/taxonomy" >
-                                           Patent Taxonomy
-                                    </Link>
-                                </li>
-                                <li>
-                                    <svg className="mx-4" width={5} height={13} viewBox="0 0 5 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M4.67347 0.34082H3.59961L0.318359 12.5312H1.39222L4.67347 0.34082Z" fill="#E5E7EB" />
-                                    </svg>
-                                </li>
-                                <li>
-                                    <Link to="/NPAtaxonomy" >
-                                            Non-Patent Taxonomy 
-                                    </Link>
-                                </li>
-                                
-                               
-                            </ul>
-
-                            
-
-                            
-
-                        </div>
-                        <div tabindex="0" aria-label="indigo background badge justify-right" class="mt-8 focus:outline-none bg-indigo-700 h-8 w-1/2  mb-4 md:mb-0 rounded-full flex items-center justify-center">
-                        <span class="text-sm text-white font-normal">Project Name - Alternative protein sweeteners for soda/beverage
-</span>
+                        
+                        <div tabindex="0" aria-label=" items-center" class="mt-2 focus:outline-none  h-8 w-1/2  mb-4 md:mb-0 rounded-full flex items-center justify-center">
+                        {/* <span class="text-sm text-white font-normal">Project Name - Alternative protein sweeteners for soda/beverage
+</span> */}
                     </div>
                     </div>
                 </nav>

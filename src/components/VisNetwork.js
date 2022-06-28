@@ -70,6 +70,7 @@ const VisNetwork = props => {
         //templabel = templabel.slice(0,indexbrac);
         props.stateHandlerPA(templabel.trim());
         navigate("/dataset");
+        
     });
   }, [navigate,props]);
 
